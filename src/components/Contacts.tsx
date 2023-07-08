@@ -9,7 +9,6 @@ export interface Link {
 }
 export interface ContactsInterface {
     address: String;
-    phone: String;
     link: Link[];
 }
 
