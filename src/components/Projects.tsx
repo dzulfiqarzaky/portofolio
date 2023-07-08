@@ -3,9 +3,28 @@ import Masonry from '@mui/lab/Masonry';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Spacer } from './style'
-const Projects = ({ projects }: any) => {
+
+interface TechnologyInterface {
+    title: string;
+    description: string;
+  }
+  
+  interface LinkInterface {
+    title: string;
+    url: string;
+  }
+  
+  interface ProjectInterface {
+    title: string;
+    description: string;
+    feat: string;
+    tech: TechnologyInterface[];
+    link: LinkInterface[];
+  }
+
+const Projects = ({ projects }: {projects: ProjectInterface[]}) => {
     const [view, setView] = useState("front");
-    const [idx, setIdx] = useState(null)
+    const [idx, setIdx] = useState<number | null>(null)
 
     return (
         <Box sx={{ pt: 4 }}>
@@ -56,7 +75,7 @@ const Projects = ({ projects }: any) => {
                                 {project.tech.map(tech => (
                                     <>
                                         <Spacer />
-                                        <Typography variant={"h6"} style={{text: "bold"}}>{tech.title}</Typography>
+                                        <Typography variant={"h6"}>{tech.title}</Typography>
                                         <p>{tech.description}</p>
                                     </>
                                 ))}

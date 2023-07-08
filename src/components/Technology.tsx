@@ -44,7 +44,7 @@ const TechnologyDescription = styled.p`
   }
 `;
 
-const Technology = ({technologies}: TechnologiesInterface) => {
+const Technology = ({technologies}: {technologies: TechnologiesInterface[]}) => {
   return (
     <div>
         <Title>Technology</Title>

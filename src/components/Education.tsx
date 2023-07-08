@@ -6,6 +6,7 @@ import { css } from 'styled-components';
 
 export interface EducationInterface {
   title: string;
+  link: string;
   subHead: string;
   description: string;
 }
@@ -50,7 +51,7 @@ const EducationDescription = styled.p`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link)<{ glow?: boolean }>`
     text-decoration: none;
     font-weight: bold;
     color: black;
@@ -67,7 +68,7 @@ const StyledLink = styled(Link)`
     }
 
     ${props =>
-      props.glow &&
+      props?.glow &&
       css`
         &:hover {
           color: #ff5100; /* Replace with your desired glow color */
@@ -79,7 +80,7 @@ const StyledLink = styled(Link)`
   `;
 
 
-const Education = ({ education }: EducationInterface) => {
+const Education = ({ education }: {education: EducationInterface[]}) => {
   return (
     <EducationContainer>
       <Title>Education</Title>

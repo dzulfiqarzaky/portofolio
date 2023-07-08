@@ -6,7 +6,8 @@ import { css } from 'styled-components';
 
 export interface ExperienceInterface {
     title: string;
-    description: string
+    link: string;
+    description: string;
 }
 
 const Title = styled.h1`
@@ -46,7 +47,7 @@ const ExperienceDescription = styled.p`
   }
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link)<{ glow?: boolean }>`
     text-decoration: none;
     font-weight: bold;
     color: black;
@@ -63,7 +64,7 @@ const StyledLink = styled(Link)`
     }
 
     ${props =>
-      props.glow &&
+      props?.glow &&
       css`
         &:hover {
           color: #ff5100; /* Replace with your desired glow color */
@@ -74,7 +75,7 @@ const StyledLink = styled(Link)`
       `}
   `;
 
-const Experiences = ({experiences}: ExperienceInterface) => {
+const Experiences = ({experiences}: {experiences: ExperienceInterface[]}) => {
   return (
     <div>
         <Title>Experience</Title>
