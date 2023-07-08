@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import Contacts from './Contacts';
+import Contacts, {ContactsInterface} from './Contacts';
 import { Spacer } from './style';
 
 interface MainInterface {
@@ -8,6 +8,7 @@ interface MainInterface {
     title: string;
     description: string[];
   };
+  contacts: ContactsInterface
 }
 
 const Container = styled.div`
