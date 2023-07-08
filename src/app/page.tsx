@@ -32,7 +32,7 @@ const MainWrapper = styled.div`
 
 const SectionWrapper = styled.div`
   width: 100vw;
-  height: ${props => props.notFull ? "auto": "100vh"};
+  height: ${props => props?.notFull ? "auto": "100vh"};
   display: flex;
   align-items: center;
 `;
