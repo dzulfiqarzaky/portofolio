@@ -18,6 +18,9 @@ import {
 } from '../constants/index.js';
 import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 
+interface SectionWrapperProps {
+  notFull?: boolean;
+}
 
 const MainContainer = styled.div`
   width: 100%;
@@ -30,7 +33,7 @@ const MainWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const SectionWrapper = styled.div`
+const SectionWrapper = styled.div<SectionWrapperProps>`
   width: 100vw;
   height: ${props => props?.notFull ? "auto": "100vh"};
   display: flex;
