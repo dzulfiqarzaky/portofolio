@@ -152,19 +152,15 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
     touchMoveX.current = null;
   };
 
-//   const handlers = useSwipeable({
-//     onSwipedRight: () => {
-//         swipeFn(index)
-//     },
-//     onSwipedLeft: () => {
-//         swipeFn(index)
-//     },
-//     preventDefaultTouchmoveEvent: true,
-//   });
+  const handleTouchEnd = () => {
+    handleMouseUp()
+  };
+
 
   return (
     <Box sx={{ pt: 4 }} 
     onMouseUp={handleMouseUp}
+    onTouchEnd={handleTouchEnd}
     >
       <Typography variant="h2">Projects</Typography>
       <div
@@ -177,7 +173,9 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
         }}
       >
         {projects.map((project, index) => (
-          <MainContainer key={index}>
+          <MainContainer key={index}
+          {...handlers}
+          >
             <CardWrapper
               className={swipedIndex?.filter(swiped => swiped?.index === index) && swipedIndex?.filter(swiped => swiped?.index === index)[0]?.swiped ? 'swiped' : ''}
               onTouchStart={(event: React.TouchEvent<HTMLDivElement>) => handleTouchStart(index, event)}
@@ -185,7 +183,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
               onMouseDown={(event: React.MouseEvent<HTMLDivElement>) => handleMouseDown(index, event)}
               onMouseMove={(event: React.MouseEvent<HTMLDivElement>) => handleMouseMove(index, event)}
               onMouseUp={handleMouseUp}
-            //   {...handlers}
+              onTouchEnd={handleTouchEnd}
             >
               <CardContent style={{ overflow: 'auto' }}>
                 <CardTitle>{project.title}</CardTitle>
