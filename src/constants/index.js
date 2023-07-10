@@ -58,30 +58,30 @@ const experiences = [
     }
 ]
 
-const technologies = [
-    {
-        title: "Backend",
-        description: "Express JS, Redis, Apollo GraphQL, REST, CRUD, Node JS, Jest, Supertest, Prisma ORM, Nest ORM, Sequelize ORM, Firestore, JWT, Bcrypt, mongoose, mongoDB"
-    },
-    {
-        title: "Frontend",
-        description: "Tailwind, React JS, React Native, Redux, Expo, Vue JS, Vuex, JQuery, Ejs, Bootstrap, Vanilla CSS, Apollo Client, HTML 5, Styled Component, ANTD, NEXTjs, framer motion."
-    },
-    {
-        title: "Others",
-        description: "Cheerio JS, MVC, NavGuard React, and Vue, Error Handler, Heroku, Firebase, Database Schema, GoogleMaps API, Socket.IO"
-    },
-    {
-        title: "Language",
-        description: "Javascript/Typescript"
-    },
-    {
-        title: "In the process of learning",
-        description: "Java/Springboot, Flutter"
-    }
-]
+// const technologies = [
+//     {
+//         title: "Backend",
+//         description: "Express JS, Redis, Apollo GraphQL, REST, CRUD, Node JS, Jest, Supertest, Prisma ORM, Nest ORM, Sequelize ORM, Firestore, JWT, Bcrypt, mongoose, mongoDB"
+//     },
+//     {
+//         title: "Frontend",
+//         description: "Tailwind, React JS, React Native, Redux, Expo, Vue JS, Vuex, JQuery, Ejs, Bootstrap, Vanilla CSS, Apollo Client, HTML 5, Styled Component, ANTD, NEXTjs, framer motion."
+//     },
+//     {
+//         title: "Others",
+//         description: "Cheerio JS, MVC, NavGuard React, and Vue, Error Handler, Heroku, Firebase, Database Schema, GoogleMaps API, Socket.IO"
+//     },
+//     {
+//         title: "Language",
+//         description: "Javascript/Typescript"
+//     },
+//     {
+//         title: "In the process of learning",
+//         description: "Java/Springboot, Flutter"
+//     }
+// ]
 
-const coba = [
+const technologies = [
     {
         title: "Frontend",
         data: [
@@ -406,5 +406,4 @@ export {
     technologies,
     projects,
     contacts,
-    coba
 }

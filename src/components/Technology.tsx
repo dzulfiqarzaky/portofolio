@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Spacer } from './style'
-import {AiOutlineAntDesign, SiAntdesign} from "react-icons/ai"
 import { ReactSVG } from "react-svg";
 import Hello from './HelloMotion'
 
 export interface TechnologiesInterface {
     title: string;
-    description: string;
+    data: {title: string; url: string;}[];
 }
 
 const Title = styled.h1`
@@ -47,7 +46,7 @@ const TechnologyDescription = styled.p`
   }
 `;
 
-const Technology = ({technologies, coba}: {technologies: TechnologiesInterface[], coba: TechnologiesInterface}) => {
+const Technology = ({technologies}: {technologies: TechnologiesInterface[]}) => {
   const title= "Technology".split("")
   return (
     <div>
@@ -66,7 +65,7 @@ const Technology = ({technologies, coba}: {technologies: TechnologiesInterface[]
                 <TechnologyDescription>{tech.description}</TechnologyDescription>
           </div>
         ))} */}
-        {coba.map(tech => (
+        {technologies.map(tech => (
           <div key={tech.title}>
           <Spacer/>
           <TechnologyTitle>{tech.title}</TechnologyTitle>
@@ -86,7 +85,7 @@ const Technology = ({technologies, coba}: {technologies: TechnologiesInterface[]
                   <ReactSVG src={tch.url} beforeInjection={(svg) => {
                     svg.classList.add('svg-class-name')
                     svg.setAttribute('style', 'width: 56px; height: 56px;')
-                  }} alt={tch.title}/>
+                  }} />
                 </div>
               </Hello>
             ))}
