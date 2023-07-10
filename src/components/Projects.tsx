@@ -84,11 +84,11 @@ const BackCardContent = styled(CardContent)`
 const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
   const [swipedIndex, setSwipedIndex] = useState<{index: number; swiped: boolean}[]>([]);
   const [swiped, setSwiped] = useState(true)
-  const [choosenIndex, setChoosenIndex] = useState(null)
+  const [choosenIndex, setChoosenIndex] = useState<number | null>(null)
   const touchStartX = useRef<number | null>(null);
   const touchMoveX = useRef<number | null>(null);
   
-  const swipeFn = (index) => {
+  const swipeFn = (index: number) => {
     if (swipedIndex.length === 0) {
       setSwipedIndex([{ index, swiped: true }]);
     } else {
@@ -109,21 +109,21 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
   
   const handleTouchStart = (index: number, event: React.TouchEvent<HTMLDivElement>) => {
     touchStartX.current = event.touches[0].clientX;
-    if (deltaX > 10) {
-      swipeFn(index)
-      } else if (deltaX < -10) {
-        swipeFn(index)
-      }
+    // if (deltaX > 10) {
+    //   swipeFn(index)
+    //   } else if (deltaX < -10) {
+    //     swipeFn(index)
+    //   }
   };
 
   const handleTouchMove = (index: number, event: React.TouchEvent<HTMLDivElement>) => {
     if (!touchStartX.current) return;
     touchMoveX.current = event.touches[0].clientX;
-    if (deltaX > 10) {
-        swipeFn(index)
-      } else if (deltaX < -10) {
-        swipeFn(index)
-      }
+    // if (deltaX > 10) {
+    //     swipeFn(index)
+    //   } else if (deltaX < -10) {
+    //     swipeFn(index)
+    //   }
   };
 
   const handleMouseDown = (index: number, event: React.MouseEvent<HTMLDivElement>) => {
@@ -144,9 +144,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
     }
 
     const deltaX = touchMoveX.current - touchStartX.current;
-    if (deltaX > 10) {
-        swipeFn(choosenIndex)
-    } else if (deltaX < -10) {
+    if(choosenIndex && (deltaX > 10 || deltaX < -10)) {
         swipeFn(choosenIndex)
     }
 
@@ -154,15 +152,15 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
     touchMoveX.current = null;
   };
 
-  const handlers = useSwipeable({
-    onSwipedRight: () => {
-        swipeFn(index)
-    },
-    onSwipedLeft: () => {
-        swipeFn(index)
-    },
-    preventDefaultTouchmoveEvent: true,
-  });
+//   const handlers = useSwipeable({
+//     onSwipedRight: () => {
+//         swipeFn(index)
+//     },
+//     onSwipedLeft: () => {
+//         swipeFn(index)
+//     },
+//     preventDefaultTouchmoveEvent: true,
+//   });
 
   return (
     <Box sx={{ pt: 4 }} 
@@ -182,12 +180,12 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
           <MainContainer key={index}>
             <CardWrapper
               className={swipedIndex?.filter(swiped => swiped?.index === index) && swipedIndex?.filter(swiped => swiped?.index === index)[0]?.swiped ? 'swiped' : ''}
-              onTouchStart={(event) => handleTouchStart(index, event)}
-              onTouchMove={(event) => handleTouchMove(index, event)}
-              onMouseDown={(event) => handleMouseDown(index, event)}
-              onMouseMove={(event) => handleMouseMove(index, event)}
+              onTouchStart={(event: React.TouchEvent<HTMLDivElement>) => handleTouchStart(index, event)}
+              onTouchMove={(event: React.TouchEvent<HTMLDivElement>) => handleTouchMove(index, event)}
+              onMouseDown={(event: React.MouseEvent<HTMLDivElement>) => handleMouseDown(index, event)}
+              onMouseMove={(event: React.MouseEvent<HTMLDivElement>) => handleMouseMove(index, event)}
               onMouseUp={handleMouseUp}
-              {...handlers}
+            //   {...handlers}
             >
               <CardContent style={{ overflow: 'auto' }}>
                 <CardTitle>{project.title}</CardTitle>
