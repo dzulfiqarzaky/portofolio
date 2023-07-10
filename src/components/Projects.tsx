@@ -108,21 +108,12 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
   
   const handleTouchStart = (index: number, event: React.TouchEvent<HTMLDivElement>) => {
     touchStartX.current = event.touches[0].clientX;
-    // if (deltaX > 10) {
-    //   swipeFn(index)
-    //   } else if (deltaX < -10) {
-    //     swipeFn(index)
-    //   }
+    setChoosenIndex(index)
   };
 
   const handleTouchMove = (index: number, event: React.TouchEvent<HTMLDivElement>) => {
     if (!touchStartX.current) return;
     touchMoveX.current = event.touches[0].clientX;
-    // if (deltaX > 10) {
-    //     swipeFn(index)
-    //   } else if (deltaX < -10) {
-    //     swipeFn(index)
-    //   }
   };
 
   const handleMouseDown = (index: number, event: React.MouseEvent<HTMLDivElement>) => {
