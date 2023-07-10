@@ -93,11 +93,11 @@ const projects = [
             },
             {
                 title: "Backend Stack",
-                description: "Apollo, Tailwind, graphql, MongoDB, Docker, NodeJS, BcryptJS, dotENV, JWT, SequelizeJs, PostgreSQL, ExpressJS, jest, heroku, mongoose, socketIO, mongoDB atlas.",
+                description: "Apollo, Tailwind, graphql, MongoDB, Docker, NodeJS, BcryptJS, dotENV, JWT, SequelizeJs, PostgreSQL, ExpressJS, jest, heroku, mongoose, socketIO, mongoDB atlas",
             },
             {
                 title: "Other tech",
-                description: " XenditApi, MidtransApi, googleMapsApi, Apollo, graphql, Redis, jest, heroku, socketIO."
+                description: " XenditApi, MidtransApi, googleMapsApi, Apollo, graphql, Redis, jest, heroku, socketIO"
             }
         ],
         link: [{
@@ -115,11 +115,11 @@ const projects = [
             },
             {
                 title: "Backend Stack",
-                description: "NodeJS, BcryptJS, dotENV, PostgreSQL, ExpressJS."
+                description: "NodeJS, BcryptJS, dotENV, PostgreSQL, ExpressJS"
             },
             {
                 title: "Other tech",
-                description: "FirebaseAuth, FireStore, Cheerio."
+                description: "FirebaseAuth, FireStore, Cheerio"
             }
         ],
         link: [
@@ -144,11 +144,11 @@ const projects = [
         tech: [
             {
                 title: "Frontend Stack",
-                description: "React, React Native, Redux, Tailwind, Bootstrap, HTML5, Axios, fetch."
+                description: "React, React Native, Redux, Tailwind, Bootstrap, HTML5, Axios, fetch"
             },
             {
                 title: "Backend Stack",
-                description: "MongoDB, NodeJS, BcryptJS, dotENV, JWT, ExpressJs, SequelizeJs, PostgreSQL, ExpressJS."
+                description: "MongoDB, NodeJS, BcryptJS, dotENV, JWT, ExpressJs, SequelizeJs, PostgreSQL, ExpressJS"
             },
             {
                 title: "Other tech",
@@ -181,11 +181,11 @@ const projects = [
             },
             {
                 title: "Backend Stack",
-                description: "NodeJS, BcryptJS, dotENV, JWT, ExpressJs, SequelizeJs, PostgreSQL, ExpressJS,"
+                description: "NodeJS, BcryptJS, dotENV, JWT, ExpressJs, SequelizeJs, PostgreSQL, ExpressJS"
             },
             {
                 title: "Other tech",
-                description: " Multer."
+                description: " Multer"
             }
         ],
         link: [
@@ -202,15 +202,15 @@ const projects = [
         tech: [
             {
                 title: "Frontend Stack",
-                description: "Vue JS, VueX, Tailwind, Bootstrap, Axios, HTML5, CSS, JQuery fetch."
+                description: "Vue JS, VueX, Tailwind, Bootstrap, Axios, HTML5, CSS, JQuery fetch"
             },
             {
                 title: "Backend Stack",
-                description: "NodeJS, BcryptJS, dotENV, JWT, Sequelize, PostgreSQL, ExpressJS."
+                description: "NodeJS, BcryptJS, dotENV, JWT, Sequelize, PostgreSQL, ExpressJS"
             },
             {
                 title: "Other tech",
-                description: " Multer."
+                description: " Multer"
             }
         ],
         link: [
