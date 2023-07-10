@@ -123,10 +123,10 @@ const projects = [
             }
         ],
         link: [
-            {
-                title: "Webnovel-project",
-                url: "https://webnovel-project.firebaseapp.com/" 
-            }, 
+            // {
+            //     title: "Webnovel-project",
+            //     url: "https://webnovel-project.firebaseapp.com/" 
+            // }, 
             {
                 title: "Webnovel-Client-Github",
                 url: "https://github.com/dzulfiqarzaky/p2-iproject-client/", 
@@ -214,10 +214,10 @@ const projects = [
             }
         ],
         link: [
-            {
-                title: "JobHunt-project",
-                url: "https://job-hunt-customer.firebaseapp.com/" 
-            }, 
+            // {
+            //     title: "JobHunt-project",
+            //     url: "https://job-hunt-customer.firebaseapp.com/" 
+            // }, 
             {
                 title: "JobHunt-Client-Github",
                 url: "https://job-hunt-client-uppsala-fox.firebaseapp.com/", 

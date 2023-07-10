@@ -28,6 +28,7 @@ const MainContainer = styled.div`
   width: 340px;
   height: 400px;
   background: none;
+  /* pointer-events: none;  */
 `;
 
 const CardWrapper = styled.div`
@@ -44,9 +45,10 @@ const CardWrapper = styled.div`
   transition: transform 0.3s ease;
   background: #ffc728;
   color: #000;
+  touch-action: pan-x; /* Add this line */
+  pointer-events: auto; 
+  /* touch-action: pan-x; */
 
-  touch-action: pan-x;
-  
   &.swiped {
     transform: rotateY(180deg);
   }
@@ -60,9 +62,10 @@ const CardContent = styled.div`
   height: 100%;
   padding: 10px;
   backface-visibility: hidden;
-  overflow: hidden;
+  overflow: auto;
   background: #ffc728;
   color: #000;
+
 `;
 
 const CardTitle = styled.h1`
@@ -90,8 +93,8 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
   const touchMoveX = useRef<number | null>(null);
   
   const swipeFn = (index: number) => {
-    console.log(index)
-    console.log(swipedIndex)
+    console.log(index, "swippedFn")
+    console.log(swipedIndex, "index")
     if (swipedIndex.length === 0) {
       setSwipedIndex([{ index, swiped: true }]);
     } else {
@@ -122,6 +125,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
 
   const handleMouseDown = (index: number, event: React.MouseEvent<HTMLDivElement>) => {
     touchStartX.current = event.clientX;
+    console.log(index,111)
     setChoosenIndex(index)
   };
 
@@ -138,7 +142,9 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
     }
 
     const deltaX = touchMoveX.current - touchStartX.current;
-    if(choosenIndex && (deltaX > 10 || deltaX < -10)) {
+    
+    if((choosenIndex || choosenIndex === 0) && (deltaX > 10 || deltaX < -10)) {
+        console.log("masuk")
         swipeFn(choosenIndex)
     }
 
@@ -178,7 +184,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
               onMouseUp={handleMouseUp}
               onTouchEnd={handleTouchEnd}
             >
-              <CardContent style={{ overflow: 'auto' }}>
+              <CardContent >
                 <CardTitle>{project.title}</CardTitle>
                 {project.tech.map((tech, techIndex) => (
                   <React.Fragment key={techIndex}>
