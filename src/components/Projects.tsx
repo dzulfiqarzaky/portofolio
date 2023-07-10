@@ -3,7 +3,6 @@ import Masonry from '@mui/lab/Masonry';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
-import { useSwipeable } from 'react-swipeable';
 import { Spacer } from './style';
 
 interface TechnologyInterface {
@@ -174,7 +173,6 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
       >
         {projects.map((project, index) => (
           <MainContainer key={index}
-          {...handlers}
           >
             <CardWrapper
               className={swipedIndex?.filter(swiped => swiped?.index === index) && swipedIndex?.filter(swiped => swiped?.index === index)[0]?.swiped ? 'swiped' : ''}
