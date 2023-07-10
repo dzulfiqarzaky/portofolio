@@ -45,6 +45,8 @@ const CardWrapper = styled.div`
   background: #ffc728;
   color: #000;
 
+  touch-action: pan-x;
+  
   &.swiped {
     transform: rotateY(180deg);
   }
@@ -88,6 +90,8 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
   const touchMoveX = useRef<number | null>(null);
   
   const swipeFn = (index: number) => {
+    console.log(index)
+    console.log(swipedIndex)
     if (swipedIndex.length === 0) {
       setSwipedIndex([{ index, swiped: true }]);
     } else {
