@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 import { Spacer } from './style';
+import Hello from './HelloMotion'
 
 interface TechnologyInterface {
   title: string;
@@ -22,6 +23,19 @@ interface ProjectInterface {
   tech: TechnologyInterface[];
   link: LinkInterface[];
 }
+
+const Title = styled.h1`
+  font-size: 2rem;
+  font-weight: 600;
+
+  @media screen and (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 4rem;
+  }
+`;
 
 const MainContainer = styled.div`
   position: relative;
@@ -93,8 +107,6 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
   const touchMoveX = useRef<number | null>(null);
   
   const swipeFn = (index: number) => {
-    console.log(index, "swippedFn")
-    console.log(swipedIndex, "index")
     if (swipedIndex.length === 0) {
       setSwipedIndex([{ index, swiped: true }]);
     } else {
@@ -156,13 +168,21 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
     handleMouseUp()
   };
 
-
+  const title= "Projects".split("")
+  
   return (
     <Box sx={{ pt: 4 }} 
     onMouseUp={handleMouseUp}
     onTouchEnd={handleTouchEnd}
     >
-      <Typography variant="h2">Projects</Typography>
+      <Title>
+        {title.map((letter, index) => (
+          <Hello key={index}>
+          {letter}
+          </Hello>
+        ))}
+        </Title>
+      <Spacer />
       <div
         style={{
           display: 'flex',

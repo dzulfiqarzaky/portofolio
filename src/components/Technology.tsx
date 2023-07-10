@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 import { Spacer } from './style'
+import {AiOutlineAntDesign, SiAntdesign} from "react-icons/ai"
+import { ReactSVG } from "react-svg";
+import Hello from './HelloMotion'
 
 export interface TechnologiesInterface {
     title: string;
@@ -44,18 +47,53 @@ const TechnologyDescription = styled.p`
   }
 `;
 
-const Technology = ({technologies}: {technologies: TechnologiesInterface[]}) => {
+const Technology = ({technologies, coba}: {technologies: TechnologiesInterface[], coba: TechnologiesInterface}) => {
+  const title= "Technology".split("")
   return (
     <div>
-        <Title>Technology</Title>
+        <Title>
+        {title.map((letter, index) => (
+          <Hello key={index}>
+          {letter}
+          </Hello>
+        ))}
+        </Title>
         <Spacer />
-        {technologies.map(tech => (
+        {/* {technologies.map(tech => (
           <div key={tech.title}>
                 <Spacer/>
                 <TechnologyTitle>{tech.title}</TechnologyTitle>
                 <TechnologyDescription>{tech.description}</TechnologyDescription>
           </div>
-        ))}
+        ))} */}
+        {coba.map(tech => (
+          <div key={tech.title}>
+          <Spacer/>
+          <TechnologyTitle>{tech.title}</TechnologyTitle>
+          <Spacer/>
+          <div style={{
+            display: 'flex',
+            gap: '1rem',
+            flexWrap: 'wrap',
+          }}>
+            {tech.data.map(tch => (
+              <Hello>
+                <div style={{
+                  background: 'yellow',
+                  padding: '.5rem',
+                  border: '3px solid black'
+                }}>
+                  <ReactSVG src={tch.url} beforeInjection={(svg) => {
+                    svg.classList.add('svg-class-name')
+                    svg.setAttribute('style', 'width: 56px; height: 56px;')
+                  }} alt={tch.title}/>
+                </div>
+              </Hello>
+            ))}
+          </div>
+          </div>
+          )
+        )}
     </div>
   )
 }

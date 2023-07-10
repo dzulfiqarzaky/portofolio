@@ -81,6 +81,174 @@ const technologies = [
     }
 ]
 
+const coba = [
+    {
+        title: "Frontend",
+        data: [
+            {
+                title: "Antd",
+                url: "/icons/antdesign-svgrepo-com(1).svg"
+            },
+            {
+                title: "Apollo",
+                url: "/icons/apollostack-svgrepo-com.svg"
+            },
+            {
+                title: "Bootstrap",
+                url: "/icons/bootstrap-svgrepo-com.svg"
+            },
+            {
+                title: "CSS3",
+                url: "/icons/css-3-svgrepo-com.svg"
+            },
+            {
+                title: "EJS",
+                url: "/icons/ejs-svgrepo-com.svg"
+            },
+            {
+                title: "EXPO",
+                url: "/icons/expo-svgrepo-com.svg"
+            },
+            {
+                title: "Framer",
+                url: "/icons/framer-svgrepo-com.svg"
+            },
+            {
+                title: "Jquery",
+                url: "/icons/jquery-svgrepo-com.svg"
+            },
+            {
+                title: "MUI",
+                url: "/icons/material-ui-svgrepo-com.svg"
+            },
+            {
+                title: "NEXTJS",
+                url: "/icons/nextjs-fill-svgrepo-com.svg"
+            },
+            {
+                title: "ReactRouter",
+                url: "/icons/react-router-svgrepo-com.svg"
+            },
+            {
+                title: "React",
+                url: "/icons/react-svgrepo-com.svg"
+            },
+            {
+                title: "Redux",
+                url: "/icons/redux-svgrepo-com.svg"
+            },
+            {
+                title: "Styled",
+                url: "/icons/styled-components-svgrepo-com.svg"
+            },
+            {
+                title: "Tailwind",
+                url: "/icons/tailwind-svgrepo-com.svg"
+            },
+            {
+                title: "Vue",
+                url: "/icons/vue-svgrepo-com.svg"
+            },
+            
+        ]
+    },
+    {
+        title: "Backend",
+        data: [
+            {
+                title: "Express",
+                url: "/icons/express-svgrepo-com.svg"
+            },
+            {
+                title: "Graphql",
+                url: "/icons/graphql-svgrepo-com.svg"
+            },
+            {
+                title: "JWT",
+                url: "/icons/jsonwebtokens-svgrepo-com.svg"
+            },
+            {
+                title: "Prisma",
+                url: "/icons/light-prisma-svgrepo-com.svg"
+            },
+            {
+                title: "MongoDb",
+                url: "/icons/mongodb-svgrepo-com.svg"
+            },
+            {
+                title: "Nestjs",
+                url: "/icons/nestjs-svgrepo-com.svg"
+            },
+            {
+                title: "Redis",
+                url: "/icons/redis-svgrepo-com.svg"
+            },
+            {
+                title: "Sequelize",
+                url: "/icons/sequelize-svgrepo-com.svg"
+            },
+           
+        ]
+    },
+    {
+        title: "Others",
+        data: [
+            {
+                title: "GoogleMaps",
+                url: "/icons/google-maps-svgrepo-com.svg"
+            },
+            {
+                title: "Jest",
+                url: "/icons/jest-svgrepo-com.svg"
+            },
+            {
+                title: "Mapbox",
+                url: "/icons/mapbox-svgrepo-com.svg"
+            },
+            {
+                title: "pdftohtml",
+                url: "/icons/pdf-file-svgrepo-com.svg"
+            },
+            {
+                title: "puppeteer",
+                url: "/icons/puppeteer-svgrepo-com.svg"
+            },
+            {
+                title: "socket",
+                url: "/icons/socket-svgrepo-com.svg"
+            },
+           
+        ]
+    },
+    {
+        title: "Language",
+        data: [
+            {
+                title: "Javascript",
+                url: "/icons/javascript-svgrepo-com.svg"
+            },
+            {
+                title: "Typescript",
+                url: "/icons/typescript-logo-svgrepo-com.svg"
+            },
+           
+        ]
+    },
+    {
+        title: "learning phase",
+        data: [
+            {
+                title: "Flutter",
+                url: "/icons/flutter-svgrepo-com.svg"
+            },
+            {
+                title: "Java",
+                url: "/icons/java-svgrepo-com.svg"
+            },
+           
+        ]
+    }
+]
 const projects = [
     {
         title: "GOMANK",
@@ -238,4 +406,5 @@ export {
     technologies,
     projects,
     contacts,
+    coba
 }

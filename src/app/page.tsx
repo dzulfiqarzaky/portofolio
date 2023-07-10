@@ -15,6 +15,7 @@ import {
   technologies,
   projects,
   contacts,
+  coba,
 } from '../constants/index.js';
 import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
 
@@ -94,7 +95,7 @@ export default function Home() {
         { component: <Main main={main} contacts={contacts} /> },
         { component: <Education education={education} /> },
         { component: <Experiences experiences={experiences} /> },
-        { component: <Technology technologies={technologies} /> },
+        { component: <Technology technologies={technologies} coba={coba}/>, notFull: true },
         { component: <Projects projects={projects} />, notFull: true },
       ].map((section, index) => (
         <SectionWrapper key={index} notFull={section.notFull} 
