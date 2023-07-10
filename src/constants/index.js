@@ -12,7 +12,7 @@ const contacts = {
     link: [
         {
             title: "Email",
-            url: "emailto:dzulfiqarzakyaulia@gmail.com"
+            url: "mailto:dzulfiqarzakyaulia@gmail.com"
         },
         {
             title: "Github",

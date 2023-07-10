@@ -3,6 +3,8 @@ import {Spacer} from './style'
 import styled from 'styled-components';
 import { Typography, Link } from '@mui/material';
 import { css } from 'styled-components';
+import LinkMotion from './LinkMotion';
+import Hello from './HelloMotion'
 
 export interface ExperienceInterface {
     title: string;
@@ -67,26 +69,38 @@ const StyledLink = styled(Link)<{ glow?: boolean }>`
       props?.glow &&
       css`
         &:hover {
+          background-color: #ff5100;
           color: #ff5100; /* Replace with your desired glow color */
           @media (prefers-color-scheme: dark) {
             color: #ff6200;
+            background-color: #ff5100;
+
           }
         }
       `}
   `;
 
 const Experiences = ({experiences}: {experiences: ExperienceInterface[]}) => {
+  const title = "Experience".split("")
   return (
     <div>
-        <Title>Experience</Title>
+        <Title>
+        {title.map((letter, index) => (
+          <Hello key={index}>
+          {letter}
+          </Hello>
+        ))}
+        </Title>
         <Spacer/>
         {experiences.map((exp, index) => (
             <div key={index}>
                 <Spacer/>
-                <StyledLink href={exp.link} target="_blank" rel="noopener noreferrer" glow>
-                  <ExperienceTitle>{exp.title}</ExperienceTitle>
-                  <ExperienceDescription>{exp.description}</ExperienceDescription>
-                </StyledLink>
+                <LinkMotion>
+                  <StyledLink href={exp.link} target="_blank" rel="noopener noreferrer" glow>
+                    <ExperienceTitle>{exp.title}</ExperienceTitle>
+                  </StyledLink>
+                </LinkMotion>
+                <ExperienceDescription>{exp.description}</ExperienceDescription>
             </div>
         ))}
     </div>

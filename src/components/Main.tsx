@@ -2,10 +2,11 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Contacts, {ContactsInterface} from './Contacts';
 import { Spacer } from './style';
+import Hello from './HelloMotion'
 
 interface MainInterface {
   main: {
-    title: string;
+    title: string | string[];
     description: string[];
   };
   contacts: ContactsInterface
@@ -27,6 +28,8 @@ const Title = styled.h2`
   @media screen and (min-width: 1200px) {
     font-size: 4rem;
   }
+
+
 `;
 
 const Description = styled.p`
@@ -50,13 +53,24 @@ const ContactsWrapper = styled.div`
 `;
 
 const Main = ({ main, contacts }: MainInterface) => {
-  
+  let intro: string[] = [];
 
+  if (typeof main.title === 'string') {
+    intro = main.title.split('');
+  }
   return (
     <>
       <Container>
         <div>
-          <Title>{main.title}</Title>
+          <Title style={{display: 'flex'}}>
+          {intro.map((letter, index)=> (
+            <Hello 
+            key={index}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </Hello>
+          ))}
+          </Title>
           <Spacer />
           <div>
             {main.description.map((des, index) => (

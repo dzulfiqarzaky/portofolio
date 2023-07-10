@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { Typography } from '@mui/material';
+import Hello from './HelloMotion'
 
 export interface CustomLink {
   title: string;
@@ -35,6 +36,7 @@ const StyledLink = styled.a<StyledLinkProps>`
   text-decoration: none;
   color: #ff5100;
   font-weight: bold;
+  padding: .23rem;
 
   @media screen and (min-width: 768px) {
     font-size: 1.2rem;
@@ -48,7 +50,8 @@ const StyledLink = styled.a<StyledLinkProps>`
     props.glow &&
     `
     &:hover {
-      color: #ffa600; /* Replace with your desired glow color */
+      background: #ff5100;
+      color: white;
     }
   `}
 `;
@@ -59,9 +62,11 @@ const Contacts = ({ contacts }: {contacts: ContactsInterface}) => {
       <Address>{contacts.address}</Address>
       |
       {contacts.link.map((ctx, index) => (
+        <Hello>
         <StyledLink href={ctx.url} target="_blank" rel="noopener noreferrer" key={index} glow>
           {ctx.title}
         </StyledLink>
+        </Hello>
       ))}
     </Container>
   );

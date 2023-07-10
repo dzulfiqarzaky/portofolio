@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Spacer } from './style';
 import { Typography, Link } from '@mui/material';
 import { css } from 'styled-components';
+import Hello from './HelloMotion'
 
 export interface EducationInterface {
   title: string;
@@ -81,9 +82,16 @@ const StyledLink = styled(Link)<{ glow?: boolean }>`
 
 
 const Education = ({ education }: {education: EducationInterface[]}) => {
+  const title= "Education".split("")
   return (
     <EducationContainer>
-      <Title>Education</Title>
+      <Title>
+        {title.map((letter, index) => (
+          <Hello key={index}>
+            {letter}
+          </Hello>
+        ))}
+        </Title>
       <Spacer />
       {education.map((edu) => (
         <React.Fragment key={edu.title}>
