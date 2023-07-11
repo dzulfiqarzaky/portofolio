@@ -247,7 +247,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
                   {project.link.map((link, linkIndex) => (
                     <a href={link.url} target="_blank" rel="noopener noreferrer" key={linkIndex}>
                       <LinkMotion>
-                      <div style={{textAlign: 'center', color: 'yellow', fontWeight: 600, animation: 'glow 1.5s ease-in-out infinite'}}>
+                      <div style={{textAlign: 'center', fontWeight: 600, animation: 'glow 1.5s ease-in-out infinite'}}>
                       {link.title}
                       </div>
                       </LinkMotion>

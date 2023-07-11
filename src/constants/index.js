@@ -27,64 +27,196 @@ const contacts = {
 
 const education = [
     {
-        title: "HACKTIV8 (Jan 2022 – April 2022)",
+        title: "HACKTIV8 - 94.9/100",
+        // date: "(Jan 2022 – April 2022)",
         link: "https://www.hacktiv8.com/",
         subHead: "Full Stack JavaScript Developer Program – Score 94.9 / 100",
         description: "A 4-phase program to learn about developing JavaScript-based app, from backend, web-client, mobile-client. learn multiple kinds of JavaScript tech stack such as React JS, React Native, Vue JS, etc. Developing multiple projects, from mobile to web apps during the course."
     },
     {
-        title: "STIE PRIMA GRAHA (2015-2019)",
+        title: "STIE PRIMA GRAHA - GPA 3.15",
+        // date: "(2015-2019)",
         link: "https://upg.ac.id/v1/",
         subHead: "S1 Management – GPA 3,15",
-        description: `Maybe, a lot of people would ask "you came from a management degree? you jump too far". guess what? it's not, and I'm good at it, because i love it.`
+        description: `Even degrees cannot change my love to code.`
     }
 ]
 
 const experiences = [
     {
-        title: "PT. Kaldu Sari Nabati (SEPT 2022 – Now)",
+        title: "PT. Kaldu Sari Nabati",
+        // date: "(SEPT 2022 – Now)",
         link: "https://edot.id/",
-        description: "Front End Developer (NEXTJS/TypeScript) on E-DOT Distribution System Website project of NABATI GROUP. building a new front-end modules for Hermes and Zeus website, develop React Storybook for modular components. We use Jira as a Development tools, gitito as a Git tools, NEXTJS, React query, React Storybook, ANTD, and styled component as Front End Development tools."
+        description: "Front End Developer on E-DOT Distribution System Website.",
+        // stack: [
+        //     {
+        //         title: "Antd",
+        //         url: "/icons/antdesign-svgrepo-com(1).svg"
+        //     },
+        //     {
+        //         title: "NEXTJS",
+        //         url: "/icons/nextjs-fill-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Styled",
+        //         url: "/icons/styled-components-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Mapbox",
+        //         url: "/icons/mapbox-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "pdftohtml",
+        //         url: "/icons/pdf-file-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "puppeteer",
+        //         url: "/icons/puppeteer-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Typescript",
+        //         url: "/icons/typescript-logo-svgrepo-com.svg"
+        //     },
+           
+           
+
+        // ]
     },
     {
-        title: "PT. Bank Mandiri (April 2022 – AUG 2022)",
+        title: "Bank Mandiri",
+        // date: "(April 2022 – AUG 2022)",
         link: "https://bankmandiri.co.id/kopra-by-mandiri",
-        description: "Front End Developer (REACT) on Kopra & Laju App of Mandiri project at Plaza Mandiri. Integrating and build front-end of Kopra and Laju App, mostly building chart, table, and dashboard. Fixing Front-end bugs. We use Jira as a Development tools, Bitbucket as a Git tools, React, Redux, React Chart, and ANTD as Front End Development tools."
+        description: "Front End Developer on Kopra & Laju App of Bank Mandiri.",
+        // stack: [
+           
+        //     {
+        //         title: "Antd",
+        //         url: "/icons/antdesign-svgrepo-com(1).svg"
+        //     },
+        //     {
+        //         title: "NEXTJS",
+        //         url: "/icons/nextjs-fill-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Styled",
+        //         url: "/icons/styled-components-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Mapbox",
+        //         url: "/icons/mapbox-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "pdftohtml",
+        //         url: "/icons/pdf-file-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "puppeteer",
+        //         url: "/icons/puppeteer-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Typescript",
+        //         url: "/icons/typescript-logo-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Jira",
+        //         url: "/icons/jira-1.svg"
+        //     },
+        //     {
+        //         title: "Formik",
+        //         url: "/icons/formik.svg"
+        //     },
+        //     {
+        //         title: "Gitea",
+        //         url: "/icons/gitea.svg"
+        //     },
+        //     {
+        //         title: "React query",
+        //         url: "/icons/react-query-seeklogo.com.svg"
+        //     },
+        //     {
+        //         title: "React story book",
+        //         url: "/icons/storybook-1.svg"
+        //     },
+
+        // ]
+
     },
     {
-        title: "Consistech Solutions (Sept 2019 – Nov 2021)",
+        title: "Consistech Solutions",
+        // date: "(Sept 2019 – Nov 2021)",
         link: "https://consistechsolution.com/web/",
-        description: "Front End Developer (REACT) for a variety of products including Enterprise Resource Planning (ERP), Hospital Information System (HIS), and Payroll systems. Mostly building a dashboard for user input and fixing front-end bugs.We use Github as a Git Tools, React, Redux, Tailwind, vuejs, jQuery, Bootstrap, vanilla CSS, and so on"
+        description: "Front End Developer (REACT) for a variety of products including Enterprise Resource Planning (ERP), Hospital Information System (HIS), and Payroll systems.",
+        // stack: [
+        //     {
+        //         title: "Antd",
+        //         url: "/icons/antdesign-svgrepo-com(1).svg"
+        //     },
+        //     {
+        //         title: "NEXTJS",
+        //         url: "/icons/nextjs-fill-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Styled",
+        //         url: "/icons/styled-components-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Mapbox",
+        //         url: "/icons/mapbox-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "pdftohtml",
+        //         url: "/icons/pdf-file-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "puppeteer",
+        //         url: "/icons/puppeteer-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Typescript",
+        //         url: "/icons/typescript-logo-svgrepo-com.svg"
+        //     },
+        //     {
+        //         title: "Jira",
+        //         url: "/icons/jira-1.svg"
+        //     },
+        //     {
+        //         title: "Formik",
+        //         url: "/icons/formik.svg"
+        //     },
+        //     {
+        //         title: "Gitea",
+        //         url: "/icons/gitea.svg"
+        //     },
+        //     {
+        //         title: "React query",
+        //         url: "/icons/react-query-seeklogo.com.svg"
+        //     },
+        //     {
+        //         title: "React story book",
+        //         url: "/icons/storybook-1.svg"
+        //     },
+
+        // ]
     }
 ]
 
-// const technologies = [
-//     {
-//         title: "Backend",
-//         description: "Express JS, Redis, Apollo GraphQL, REST, CRUD, Node JS, Jest, Supertest, Prisma ORM, Nest ORM, Sequelize ORM, Firestore, JWT, Bcrypt, mongoose, mongoDB"
-//     },
-//     {
-//         title: "Frontend",
-//         description: "Tailwind, React JS, React Native, Redux, Expo, Vue JS, Vuex, JQuery, Ejs, Bootstrap, Vanilla CSS, Apollo Client, HTML 5, Styled Component, ANTD, NEXTjs, framer motion."
-//     },
-//     {
-//         title: "Others",
-//         description: "Cheerio JS, MVC, NavGuard React, and Vue, Error Handler, Heroku, Firebase, Database Schema, GoogleMaps API, Socket.IO"
-//     },
-//     {
-//         title: "Language",
-//         description: "Javascript/Typescript"
-//     },
-//     {
-//         title: "In the process of learning",
-//         description: "Java/Springboot, Flutter"
-//     }
-// ]
 
 const technologies = [
     {
         title: "Frontend",
         data: [
+            {
+                title: "React query",
+                url: "/icons/react-query-seeklogo.com.svg"
+            },
+            {
+                title: "Formik",
+                url: "/icons/formik.svg"
+            },
+            {
+                title: "React story book",
+                url: "/icons/storybook-1.svg"
+            },
             {
                 title: "Antd",
                 url: "/icons/antdesign-svgrepo-com(1).svg"
@@ -193,6 +325,15 @@ const technologies = [
     {
         title: "Others",
         data: [
+            {
+                title: "Jira",
+                url: "/icons/jira-1.svg"
+            },
+            
+            {
+                title: "Gitea",
+                url: "/icons/gitea.svg"
+            },
             {
                 title: "GoogleMaps",
                 url: "/icons/google-maps-svgrepo-com.svg"
