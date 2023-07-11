@@ -1,7 +1,7 @@
 "use client";
+import { useEffect } from 'react';
 import { styled } from 'styled-components';
 import { motion } from 'framer-motion';
-import useScrollSnap from "react-use-scroll-snap";
 import Main from '../components/Main';
 import Education from '../components/Education';
 import Experiences from '../components/Experiences';
@@ -16,8 +16,7 @@ import {
   projects,
   contacts,
 } from '../constants/index.js';
-// import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
-import './hovertree.js'
+import Hovertree from './hovertree';
 
 interface SectionWrapperProps {
   notFull?: boolean;
@@ -36,31 +35,32 @@ const MainWrapper = styled.div`
 
 const SectionWrapper = styled.div<SectionWrapperProps>`
   width: 100vw;
-  height: ${props => props?.notFull ? "auto": "100vh"};
+  height: ${props => (props?.notFull ? 'auto' : '100vh')};
   display: flex;
   align-items: center;
 `;
 
-export default function Home() {
+const Home = () => {
+
+
   return (
     <MainContainer>
-      <canvas id="canvas"></canvas>
-      {[
-        { component: <Main main={main} contacts={contacts} /> },
-        { component: <Education education={education} /> },
-        { component: <Experiences experiences={experiences} /> },
-        { component: <Technology technologies={technologies} />, notFull: true },
-        { component: <Projects projects={projects} />, notFull: true },
-      ].map((section, index) => (
-        <SectionWrapper key={index} notFull={section.notFull} 
-        // onMouseEnter={textEnter} 
-        // onMouseLeave={textLeave}
-        >
-          <MainWrapper >
-            {section.component}
-          </MainWrapper>
-        </SectionWrapper>
-      ))}
+      <Hovertree />
+      <MainContainer>
+        {[
+          { component: <Main main={main} contacts={contacts} /> },
+          { component: <Education education={education} /> },
+          { component: <Experiences experiences={experiences} /> },
+          { component: <Technology technologies={technologies} />, notFull: true },
+          { component: <Projects projects={projects} />, notFull: true },
+        ].map((section, index) => (
+          <SectionWrapper key={index} notFull={section.notFull}>
+            <MainWrapper>{section.component}</MainWrapper>
+          </SectionWrapper>
+        ))}
+      </MainContainer>
     </MainContainer>
   );
-}
+};
+
+export default Home;
