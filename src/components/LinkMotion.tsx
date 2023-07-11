@@ -5,11 +5,11 @@ const LinkMotion = ({ children }: any) => (
   whileTap={{ scale: 0.9 }}
   transition={{ duration: 0.3 }} // Adjust the transition duration as needed
 
-   class="flat-button">
+   className="flat-button">
     <div>
-      <span class="bg"></span>
-      <span class="base"></span>
-      <span class="text">
+      <span className="bg"></span>
+      <span className="base"></span>
+      <span className="text">
         {children}
       </span>
     </div>
