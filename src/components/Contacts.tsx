@@ -36,14 +36,17 @@ const StyledLink = styled.a<StyledLinkProps>`
   text-decoration: none;
   color: #ff5100;
   font-weight: bold;
-  padding: .23rem;
+  /* padding: .13rem; */
 
   @media screen and (min-width: 768px) {
     font-size: 1.2rem;
+  padding: .13rem;
   }
 
   @media screen and (min-width: 1200px) {
     font-size: 1.5rem;
+    padding: .23rem;
+
   }
 
   ${props =>

@@ -16,7 +16,8 @@ import {
   projects,
   contacts,
 } from '../constants/index.js';
-import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
+// import React, { useEffect, useState, useCallback, useRef, useMemo } from 'react';
+import './hovertree.js'
 
 interface SectionWrapperProps {
   notFull?: boolean;
@@ -41,55 +42,9 @@ const SectionWrapper = styled.div<SectionWrapperProps>`
 `;
 
 export default function Home() {
-  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  // const [cursorVariant, setCursorVariant] = useState('default');
-
-  // const updateMousePosition = 
-  //   (e: MouseEvent) => {
-  //     setMousePosition({
-  //       x: e.clientX,
-  //       y: e.clientY,
-  //     });
-  //   }
-
-  // useEffect(() => {
-  //   const onMouseMove = (e: MouseEvent) => {
-  //     requestAnimationFrame(() => {
-  //       updateMousePosition(e);
-  //     });
-  //   };
-
-  //   window.addEventListener('mousemove', onMouseMove);
-
-  //   return () => {
-  //     window.removeEventListener('mousemove', onMouseMove);
-  //   };
-  // }, []);
-
-  // const variant: any = {
-  //   default: {
-  //     x: mousePosition.x - 16,
-  //     y: mousePosition.y - 16,
-  //   },
-  //   text: {
-  //     height: 150,
-  //     width: 150,
-  //     x: mousePosition.x - 75,
-  //     y: mousePosition.y - 75,
-  //     backgroundColor: 'rgb(244, 244, 244)',
-  //     mixBlendMode: 'difference',
-  //   },
-  // }
-
-  // const textEnter = () => setCursorVariant('text');
-  // const textLeave = () => setCursorVariant('default');
-
   return (
     <MainContainer>
-      <motion.div className="cursor" 
-      // variants={variant} 
-      // animate={cursorVariant} 
-      />
+      <canvas id="canvas"></canvas>
       {[
         { component: <Main main={main} contacts={contacts} /> },
         { component: <Education education={education} /> },
