@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 import { Spacer } from './style';
 import Hello from './HelloMotion'
+import LinkMotion from './LinkMotion';
 
 interface TechnologyInterface {
   title: string;
@@ -62,7 +63,7 @@ const CardWrapper = styled.div`
   touch-action: pan-x; /* Add this line */
   pointer-events: auto; 
   /* touch-action: pan-x; */
-
+  border: 3px solid black;
   &.swiped {
     transform: rotateY(180deg);
   }
@@ -77,9 +78,8 @@ const CardContent = styled.div`
   padding: 10px;
   backface-visibility: hidden;
   overflow: auto;
-  background: #ffc728;
+  background: yellow;
   color: #000;
-
 `;
 
 const CardTitle = styled.h1`
@@ -88,13 +88,17 @@ const CardTitle = styled.h1`
 
 const BackCardContent = styled(CardContent)`
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   overflow: hidden;
-  background: #ffc728;
+  background: yellow;
+  text-align: center;
   color: #000;
   transform: rotateY(180deg);
 `;
@@ -209,7 +213,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
                 {project.tech.map((tech, techIndex) => (
                   <React.Fragment key={techIndex}>
                     <Spacer />
-                    <Typography variant="h6">{tech.title}</Typography>
+                    <Typography variant="h6" style={{fontWeight: 600}}>{tech.title}</Typography>
                     <div
                       style={{
                         display: 'flex',
@@ -242,7 +246,11 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   {project.link.map((link, linkIndex) => (
                     <a href={link.url} target="_blank" rel="noopener noreferrer" key={linkIndex}>
+                      <LinkMotion>
+                      <div style={{textAlign: 'center', color: 'yellow', fontWeight: 600, animation: 'glow 1.5s ease-in-out infinite'}}>
                       {link.title}
+                      </div>
+                      </LinkMotion>
                     </a>
                   ))}
                 </div>

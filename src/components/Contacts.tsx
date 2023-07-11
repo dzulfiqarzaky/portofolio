@@ -34,7 +34,7 @@ const Address = styled(Typography)`
 
 const StyledLink = styled.a<StyledLinkProps>`
   text-decoration: none;
-  color: #ff5100;
+  color: red;
   font-weight: bold;
   /* padding: .13rem; */
 
@@ -53,8 +53,8 @@ const StyledLink = styled.a<StyledLinkProps>`
     props.glow &&
     `
     &:hover {
-      background: #ff5100;
-      color: white;
+      background: red;
+      color: #1d1d1d;
     }
   `}
 `;
