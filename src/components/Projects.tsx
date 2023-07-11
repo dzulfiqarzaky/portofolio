@@ -186,7 +186,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
       <div
         style={{
           display: 'flex',
-          gap: '1rem',
+          gap: '2rem',
           alignItems: 'center',
           flexWrap: 'wrap',
           justifyContent: 'center',

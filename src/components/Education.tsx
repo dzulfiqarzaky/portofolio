@@ -4,6 +4,7 @@ import { Spacer } from './style';
 import { Typography, Link } from '@mui/material';
 import { css } from 'styled-components';
 import Hello from './HelloMotion'
+import LinkMotion from './LinkMotion';
 
 export interface EducationInterface {
   title: string;
@@ -55,7 +56,8 @@ const EducationDescription = styled.p`
 const StyledLink = styled(Link)<{ glow?: boolean }>`
     text-decoration: none;
     font-weight: bold;
-    color: black;
+    /* color: black; */
+    color: white;
     @media (prefers-color-scheme: dark) {
       color: white
     }
@@ -97,9 +99,11 @@ const Education = ({ education }: {education: EducationInterface[]}) => {
         <React.Fragment key={edu.title}>
           <Spacer />
           <StyledLink href={edu.link} target="_blank" rel="noopener noreferrer" glow>
+          <LinkMotion>
             <EducationTitle>{edu.title}</EducationTitle>
-            <EducationDescription>{edu.description}</EducationDescription>
+          </LinkMotion>
           </StyledLink>
+            <EducationDescription>{edu.description}</EducationDescription>
         </React.Fragment>
       ))}
     </EducationContainer>

@@ -2,11 +2,17 @@ import { motion } from "framer-motion";
 
 const LinkMotion = ({ children }: any) => (
   <motion.div
-    whileHover={{ scale: 1.1, backgroundColor: "#ff5100" }} // Replace with your desired background color
-    whileTap={{ scale: 0.9 }}
-    transition={{ duration: 0.3 }} // Adjust the transition duration as needed
-  >
-    {children}
+  whileTap={{ scale: 0.9 }}
+  transition={{ duration: 0.3 }} // Adjust the transition duration as needed
+
+   class="flat-button">
+    <div>
+      <span class="bg"></span>
+      <span class="base"></span>
+      <span class="text">
+        {children}
+      </span>
+    </div>
   </motion.div>
 );
 

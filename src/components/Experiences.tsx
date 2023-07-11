@@ -52,10 +52,7 @@ const ExperienceDescription = styled.p`
 const StyledLink = styled(Link)<{ glow?: boolean }>`
     text-decoration: none;
     font-weight: bold;
-    color: black;
-    @media (prefers-color-scheme: dark) {
-      color: white
-    }
+   
 
     @media screen and (min-width: 768px) {
         font-size: 1.2rem;
@@ -65,20 +62,7 @@ const StyledLink = styled(Link)<{ glow?: boolean }>`
         font-size: 1.5rem;
     }
 
-    ${props =>
-      props?.glow &&
-      css`
-        &:hover {
-          background-color: #ff5100;
-          color: #ff5100; /* Replace with your desired glow color */
-          @media (prefers-color-scheme: dark) {
-            color: #ff6200;
-            background-color: #ff5100;
-
-          }
-        }
-      `}
-  `;
+`;
 
 const Experiences = ({experiences}: {experiences: ExperienceInterface[]}) => {
   const title = "Experience".split("")
@@ -95,11 +79,11 @@ const Experiences = ({experiences}: {experiences: ExperienceInterface[]}) => {
         {experiences.map((exp, index) => (
             <div key={index}>
                 <Spacer/>
-                <LinkMotion>
-                  <StyledLink href={exp.link} target="_blank" rel="noopener noreferrer" glow>
-                    <ExperienceTitle>{exp.title}</ExperienceTitle>
+                  <StyledLink href={exp.link} target="_blank" rel="noopener noreferrer">
+                     <LinkMotion>
+                        <ExperienceTitle>{exp.title}</ExperienceTitle>
+                     </LinkMotion>
                   </StyledLink>
-                </LinkMotion>
                 <ExperienceDescription>{exp.description}</ExperienceDescription>
             </div>
         ))}
