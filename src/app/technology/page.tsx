@@ -1,51 +1,13 @@
+"use client";
 import React from "react";
-import styled from "styled-components";
-import { Spacer } from "./style";
+import { Spacer, SubTitle, Title } from "../../components/style";
 import { ReactSVG } from "react-svg";
-import Hello from "./HelloMotion";
-import useColorRandomizer from "@/app/useColorRandomizer";
+import Hello from "../../components/HelloMotion";
 
 export interface TechnologiesInterface {
     title: string;
     data: { title: string; url: string }[];
 }
-
-const Title = styled.h1`
-    font-size: 2rem;
-    font-weight: 600;
-
-    @media screen and (min-width: 768px) {
-        font-size: 3rem;
-    }
-
-    @media screen and (min-width: 1200px) {
-        font-size: 4rem;
-    }
-`;
-
-const TechnologyTitle = styled.h3`
-    font-size: 1.5rem;
-    font-weight: 600;
-
-    @media screen and (min-width: 1200px) {
-        font-size: 1.8rem;
-    }
-`;
-
-const TechnologyDescription = styled.p`
-    font-size: 1rem;
-    font-weight: 400;
-    text-align: justify;
-    text-justify: inter-word;
-
-    @media screen and (min-width: 768px) {
-        font-size: 1.2rem;
-    }
-
-    @media screen and (min-width: 1200px) {
-        font-size: 1.5rem;
-    }
-`;
 
 const Technology = ({
     technologies,
@@ -64,7 +26,7 @@ const Technology = ({
             {technologies.map((tech) => (
                 <div key={tech.title}>
                     <Spacer />
-                    <TechnologyTitle>{tech.title}</TechnologyTitle>
+                    <SubTitle>{tech.title}</SubTitle>
                     <Spacer />
                     <div
                         style={{

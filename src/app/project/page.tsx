@@ -1,10 +1,12 @@
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
-import { Spacer } from "./style";
-import Hello from "./HelloMotion";
-import LinkMotion from "./LinkMotion";
+import { Spacer, Title } from "../../components/style";
+import Hello from "../../components/HelloMotion";
+import LinkMotion from "../../components/LinkMotion";
+import { motion } from "framer-motion";
 
 interface TechnologyInterface {
     title: string;
@@ -178,6 +180,7 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
                                                 display: "flex",
                                                 gap: ".2rem",
                                                 flexWrap: "wrap",
+                                                paddingBottom: "1rem",
                                             }}
                                         >
                                             {tech.description
@@ -199,6 +202,53 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
                                         </div>
                                     </React.Fragment>
                                 ))}
+                                <div style={{ paddingTop: "2rem" }}></div>
+                                <motion.div
+                                    style={{
+                                        position: "fixed",
+                                        bottom: 0,
+                                        right: 0,
+                                        width: "100%",
+                                        borderRadius: "0 0 10px 10px",
+                                        fontWeight: 600,
+                                        color: "#434343",
+                                        background: "rgb(203 213 225)",
+                                        padding: ".5rem 1rem",
+                                        textAlign: "center",
+                                        display: "flex",
+                                        justifyContent: "space-between",
+                                        // animation:
+                                        //     "glow 1.5s ease-in-out infinite",
+                                    }}
+                                >
+                                    <motion.p
+                                        initial={{ x: 50, opacity: 1 }}
+                                        animate={{ x: 80, opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{
+                                            repeat: Infinity,
+                                            repeatType: "reverse",
+                                            duration: 2,
+                                            ease: "easeInOut",
+                                        }}
+                                    >
+                                        {"  >>>  "}
+                                    </motion.p>
+                                    {"SWIPE"}
+                                    <motion.p
+                                        initial={{ x: -50, opacity: 1 }}
+                                        animate={{ x: -80, opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        transition={{
+                                            repeat: Infinity,
+                                            repeatType: "reverse",
+                                            duration: 2,
+                                            ease: "easeInOut",
+                                        }}
+                                    >
+                                        {"  <<<  "}
+                                    </motion.p>
+                                </motion.div>
                             </CardContent>
                             <BackCardContent>
                                 <CardTitle>{project.title}</CardTitle>
@@ -241,19 +291,6 @@ const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
         </Box>
     );
 };
-
-const Title = styled.h1`
-    font-size: 2rem;
-    font-weight: 600;
-
-    @media screen and (min-width: 768px) {
-        font-size: 3rem;
-    }
-
-    @media screen and (min-width: 1200px) {
-        font-size: 4rem;
-    }
-`;
 
 const MainContainer = styled.div`
     position: relative;

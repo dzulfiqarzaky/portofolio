@@ -1,13 +1,8 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
-import Main from "../components/Main";
-import Education from "../components/Education";
-import Experiences from "../components/Experiences";
-import Technology from "../components/Technology";
-import Projects from "../components/Projects";
-import Contacts from "../components/Contacts";
+import Hovertree from "./hovertree";
 import {
     main,
     education,
@@ -16,18 +11,76 @@ import {
     projects,
     contacts,
 } from "../constants/index.js";
-import Hovertree from "./hovertree";
+import Main from "./main/page";
+import Education from "./education/page";
+import Experiences from "./experience/page";
+import Technology from "./technology/page";
+import Projects from "./project/page";
 
 interface SectionWrapperProps {
     notFull?: boolean;
 }
 
-const MainContainer = styled.div`
+const Home = () => {
+    const sections = [
+        {
+            component: <Main main={main} contacts={contacts} />,
+            notFull: false,
+            path: "/",
+        },
+        {
+            component: <Education education={education} />,
+            notFull: false,
+            path: "/education",
+        },
+        {
+            component: <Experiences experiences={experiences} />,
+            notFull: false,
+            path: "/experiences",
+        },
+        {
+            component: <Technology technologies={technologies} />,
+            notFull: true,
+            path: "/technology",
+        },
+        {
+            component: <Projects projects={projects} />,
+            notFull: true,
+            path: "/projects",
+        },
+        // Add other sections here
+    ];
+
+    return (
+        <MainContainer>
+            <Hovertree />
+            <MainContainer>
+                <AnimatePresence mode="wait">
+                    {sections.map((section, index) => (
+                        <motion.div
+                            key={section.path}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ delay: 0.5 }}
+                        >
+                            <SectionWrapper notFull={section.notFull}>
+                                <MainWrapper>{section.component}</MainWrapper>
+                            </SectionWrapper>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </MainContainer>
+        </MainContainer>
+    );
+};
+
+const MainContainer = styled(motion.div)`
     width: 100%;
     height: 100%;
 `;
 
-const MainWrapper = styled.div`
+const MainWrapper = styled(motion.div)`
     padding: 1rem;
     max-width: 1180px;
     margin: 0 auto;
@@ -39,55 +92,5 @@ const SectionWrapper = styled.div<SectionWrapperProps>`
     display: flex;
     align-items: center;
 `;
-
-const Home = () => {
-    useEffect(() => {
-        // Scroll to the top when the component mounts
-        window.scrollTo(0, 0);
-    }, []);
-
-    return (
-        <MainContainer>
-            <Hovertree />
-            <MainContainer>
-                {[
-                    {
-                        component: <Main main={main} contacts={contacts} />,
-                        notFull: false,
-                    },
-                    {
-                        component: <Education education={education} />,
-                        notFull: false,
-                    },
-                    {
-                        component: <Experiences experiences={experiences} />,
-                        notFull: false,
-                    },
-                    {
-                        component: <Technology technologies={technologies} />,
-                        notFull: true,
-                    },
-                    {
-                        component: <Projects projects={projects} />,
-                        notFull: true,
-                    },
-                ].map((section, index) => (
-                    <AnimatePresence key={index} initial={false}>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ delay: 0.5 }}
-                        >
-                            <SectionWrapper notFull={section?.notFull}>
-                                <MainWrapper>{section.component}</MainWrapper>
-                            </SectionWrapper>
-                        </motion.div>
-                    </AnimatePresence>
-                ))}
-            </MainContainer>
-        </MainContainer>
-    );
-};
 
 export default Home;

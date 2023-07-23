@@ -1,8 +1,9 @@
+"use client";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import Contacts, { ContactsInterface } from "./Contacts";
-import { Spacer } from "./style";
-import Hello from "./HelloMotion";
+import Contacts, { ContactsInterface } from "../../components/Contacts";
+import { Spacer, StyledDescription, Title } from "../../components/style";
+import Hello from "../../components/HelloMotion";
 
 interface MainInterface {
     main: {
@@ -11,54 +12,6 @@ interface MainInterface {
     };
     contacts: ContactsInterface;
 }
-
-const Container = styled.div`
-    display: flex;
-    flex-direction: row;
-    // border: 1px solid red;
-    // padding: 1rem;
-
-    // @media screen and (min-width: 768px) {
-    //     font-size: 3rem;
-    // }
-
-    // @media screen and (min-width: 1200px) {
-    //     font-size: 5rem;
-    // }
-`;
-
-const Title = styled.h2`
-    font-size: 1.5rem;
-    font-weight: 600;
-
-    @media screen and (min-width: 768px) {
-        font-size: 2rem;
-    }
-
-    @media screen and (min-width: 1200px) {
-        font-size: 3rem;
-    }
-`;
-
-const Description = styled.p`
-    font-size: 1rem;
-    text-align: justify;
-    text-justify: inter-word;
-    font-weight: 400;
-
-    @media screen and (min-width: 768px) {
-        font-size: 1.2rem;
-    }
-
-    @media screen and (min-width: 1200px) {
-        font-size: 1.5rem;
-    }
-`;
-
-const ContactsWrapper = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
 
 const Main = ({ main, contacts }: MainInterface) => {
     let intro: string[] = [];
@@ -80,7 +33,9 @@ const Main = ({ main, contacts }: MainInterface) => {
                     <Spacer />
                     <div>
                         {main.description.map((des, index) => (
-                            <Description key={index}>{des}</Description>
+                            <StyledDescription key={index}>
+                                {des}
+                            </StyledDescription>
                         ))}
                     </div>
                     <Spacer />
@@ -93,5 +48,15 @@ const Main = ({ main, contacts }: MainInterface) => {
         </>
     );
 };
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+
+const ContactsWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+`;
 
 export default Main;
