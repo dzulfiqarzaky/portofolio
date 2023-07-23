@@ -3,14 +3,6 @@ import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
 import Hovertree from "./hovertree";
-import {
-    main,
-    education,
-    experiences,
-    technologies,
-    projects,
-    contacts,
-} from "../constants/index.js";
 import Main from "./main/page";
 import Education from "./education/page";
 import Experiences from "./experience/page";
@@ -24,27 +16,27 @@ interface SectionWrapperProps {
 const Home = () => {
     const sections = [
         {
-            component: <Main main={main} contacts={contacts} />,
+            component: <Main />,
             notFull: false,
             path: "/",
         },
         {
-            component: <Education education={education} />,
+            component: <Education />,
             notFull: false,
             path: "/education",
         },
         {
-            component: <Experiences experiences={experiences} />,
+            component: <Experiences  />,
             notFull: false,
             path: "/experiences",
         },
         {
-            component: <Technology technologies={technologies} />,
+            component: <Technology  />,
             notFull: true,
             path: "/technology",
         },
         {
-            component: <Projects projects={projects} />,
+            component: <Projects />,
             notFull: true,
             path: "/projects",
         },

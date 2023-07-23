@@ -7,6 +7,7 @@ import { Spacer, Title } from "../../components/style";
 import Hello from "../../components/HelloMotion";
 import LinkMotion from "../../components/LinkMotion";
 import { motion } from "framer-motion";
+import { projects } from "../../constants";
 
 interface TechnologyInterface {
     title: string;
@@ -26,7 +27,7 @@ interface ProjectInterface {
     link: LinkInterface[];
 }
 
-const Projects = ({ projects }: { projects: ProjectInterface[] }) => {
+const Projects = () => {
     const [swipedIndex, setSwipedIndex] = useState<
         { index: number; swiped: boolean }[]
     >([]);

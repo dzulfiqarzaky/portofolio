@@ -3,17 +3,14 @@ import React from "react";
 import { Spacer, SubTitle, Title } from "../../components/style";
 import { ReactSVG } from "react-svg";
 import Hello from "../../components/HelloMotion";
+import { technologies } from "../../constants";
 
 export interface TechnologiesInterface {
     title: string;
     data: { title: string; url: string }[];
 }
 
-const Technology = ({
-    technologies,
-}: {
-    technologies: TechnologiesInterface[];
-}) => {
+const Technology = () => {
     const title = "Technology".split("");
     return (
         <div>

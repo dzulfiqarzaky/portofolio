@@ -11,6 +11,7 @@ import {
 } from "../../components/style";
 import Hello from "../../components/HelloMotion";
 import LinkMotion from "../../components/LinkMotion";
+import { education } from "../../constants";
 
 export interface EducationInterface {
     title: string;
@@ -23,7 +24,7 @@ const EducationContainer = styled.div`
     width: 100%;
 `;
 
-const Education = ({ education }: { education: EducationInterface[] }) => {
+const Education = () => {
     const title = "Education".split("");
     return (
         <EducationContainer>

@@ -9,6 +9,7 @@ import {
 } from "../../components/style";
 import LinkMotion from "../../components/LinkMotion";
 import Hello from "../../components/HelloMotion";
+import { experiences } from "../../constants";
 
 export interface ExperienceInterface {
     title: string;
@@ -16,11 +17,7 @@ export interface ExperienceInterface {
     description: string;
 }
 
-const Experiences = ({
-    experiences,
-}: {
-    experiences: ExperienceInterface[];
-}) => {
+const Experiences = () => {
     const title = "Experience".split("");
     return (
         <div>

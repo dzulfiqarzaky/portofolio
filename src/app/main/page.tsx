@@ -1,10 +1,9 @@
 "use client";
-import { motion } from "framer-motion";
 import styled from "styled-components";
 import Contacts, { ContactsInterface } from "../../components/Contacts";
 import { Spacer, StyledDescription, Title } from "../../components/style";
 import Hello from "../../components/HelloMotion";
-
+import { main, contacts } from "../../constants";
 interface MainInterface {
     main: {
         title: string | string[];
@@ -13,7 +12,7 @@ interface MainInterface {
     contacts: ContactsInterface;
 }
 
-const Main = ({ main, contacts }: MainInterface) => {
+const Main = () => {
     let intro: string[] = [];
 
     if (typeof main.title === "string") {
