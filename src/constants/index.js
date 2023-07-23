@@ -537,6 +537,28 @@ const projects = [
             }
         ]
     },
+    {
+        title: "Blogr - A Modern Publishing Page",
+        description: "It's a simple responsive landing page, built for practicing CSS",
+        feat: "Good view across all device",
+        tech: [
+            {
+                title: "Frontend Stack",
+                description: "Reactjs, Axios, Html5, CSS"
+            }
+        
+        ],
+        link: [
+            {
+                title: "Blogr Site",
+                url: "https://pasarnow-frontend-test.web.app/", 
+            },
+            {
+                title: "Blogr Github",
+                url: "https://github.com/dzulfiqarzaky/pasarnow-front-end-test"
+            }
+        ]
+    },
 ] 
 // const services
 

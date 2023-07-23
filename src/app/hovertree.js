@@ -1,291 +1,315 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const Hovertree = () => {
-  useEffect(() => {
-    let ctx,
-      hue,
-      logo,
-      buffer,
-      target = {},
-      tendrils = [],
-      settings = {};
+    useEffect(() => {
+        let ctx,
+            hue,
+            logo,
+            buffer,
+            target = {},
+            tendrils = [],
+            settings = {};
 
-    settings.debug = true;
-    settings.friction = 0.5;
-    settings.trails = 20;
-    settings.size = 50;
-    settings.dampening = 0.25;
-    settings.tension = 0.98;
+        settings.debug = true;
+        settings.friction = 0.5;
+        settings.trails = 20;
+        settings.size = 50;
+        settings.dampening = 0.25;
+        settings.tension = 0.98;
 
-    Math.TWO_PI = Math.PI * 2;
+        Math.TWO_PI = Math.PI * 2;
 
-    // ========================================================================================
-    // Oscillator 何问起
-    // ----------------------------------------------------------------------------------------
+        // ========================================================================================
+        // Oscillator 何问起
+        // ----------------------------------------------------------------------------------------
 
-    function Oscillator(options) {
-      this.init(options || {});
-    }
+        function Oscillator(options) {
+            this.init(options || {});
+        }
 
-    Oscillator.prototype = (function () {
-      var value = 0;
+        Oscillator.prototype = (function () {
+            var value = 0;
 
-      return {
-        init: function (options) {
-          this.phase = options.phase || 0;
-          this.offset = options.offset || 0;
-          this.frequency = options.frequency || 0.001;
-          this.amplitude = options.amplitude || 1;
-        },
+            return {
+                init: function (options) {
+                    this.phase = options.phase || 0;
+                    this.offset = options.offset || 0;
+                    this.frequency = options.frequency || 0.001;
+                    this.amplitude = options.amplitude || 1;
+                },
 
-        update: function () {
-          this.phase += this.frequency;
-          value = this.offset + Math.sin(this.phase) * this.amplitude;
-          return value;
-        },
+                update: function () {
+                    this.phase += this.frequency;
+                    value = this.offset + Math.sin(this.phase) * this.amplitude;
+                    return value;
+                },
 
-        value: function () {
-          return value;
-        },
-      };
-    })();
+                value: function () {
+                    return value;
+                },
+            };
+        })();
 
-    // ========================================================================================
-    // Tendril hovertree.com
-    // ----------------------------------------------------------------------------------------
+        // ========================================================================================
+        // Tendril hovertree.com
+        // ----------------------------------------------------------------------------------------
 
-    function Tendril(options) {
-      this.init(options || {});
-    }
+        function Tendril(options) {
+            this.init(options || {});
+        }
 
-    Tendril.prototype = (function () {
-      function Node() {
-        this.x = 0;
-        this.y = 0;
-        this.vy = 0;
-        this.vx = 0;
-      }
-
-      return {
-        init: function (options) {
-          this.spring = options.spring + (Math.random() * 0.1) - 0.05;
-          this.friction = settings.friction + (Math.random() * 0.01) - 0.005;
-          this.nodes = [];
-
-          for (var i = 0, node; i < settings.size; i++) {
-            node = new Node();
-            node.x = target.x;
-            node.y = target.y;
-            this.nodes.push(node);
-          }
-        },
-
-        update: function () {
-          var spring = this.spring,
-            node = this.nodes[0];
-
-          node.vx += (target.x - node.x) * spring;
-          node.vy += (target.y - node.y) * spring;
-
-          for (var prev, i = 0, n = this.nodes.length; i < n; i++) {
-            node = this.nodes[i];
-
-            if (i > 0) {
-              prev = this.nodes[i - 1];
-
-              node.vx += (prev.x - node.x) * spring;
-              node.vy += (prev.y - node.y) * spring;
-              node.vx += prev.vx * settings.dampening;
-              node.vy += prev.vy * settings.dampening;
+        Tendril.prototype = (function () {
+            function Node() {
+                this.x = 0;
+                this.y = 0;
+                this.vy = 0;
+                this.vx = 0;
             }
 
-            node.vx *= this.friction;
-            node.vy *= this.friction;
-            node.x += node.vx;
-            node.y += node.vy;
+            return {
+                init: function (options) {
+                    this.spring = options.spring + Math.random() * 0.1 - 0.05;
+                    this.friction =
+                        settings.friction + Math.random() * 0.01 - 0.005;
+                    this.nodes = [];
 
-            spring *= settings.tension;
-          }
-        },
+                    for (var i = 0, node; i < settings.size; i++) {
+                        node = new Node();
+                        node.x = target.x;
+                        node.y = target.y;
+                        this.nodes.push(node);
+                    }
+                },
 
-        draw: function () {
-          var x = this.nodes[0].x,
-            y = this.nodes[0].y,
-            a, b;
+                update: function () {
+                    var spring = this.spring,
+                        node = this.nodes[0];
 
-          ctx.beginPath();
-          ctx.moveTo(x, y);
+                    node.vx += (target.x - node.x) * spring;
+                    node.vy += (target.y - node.y) * spring;
 
-          for (var i = 1, n = this.nodes.length - 2; i < n; i++) {
-            a = this.nodes[i];
-            b = this.nodes[i + 1];
-            x = (a.x + b.x) * 0.5;
-            y = (a.y + b.y) * 0.5;
+                    for (var prev, i = 0, n = this.nodes.length; i < n; i++) {
+                        node = this.nodes[i];
 
-            ctx.quadraticCurveTo(a.x, a.y, x, y);
-          }
+                        if (i > 0) {
+                            prev = this.nodes[i - 1];
 
-          a = this.nodes[i];
-          b = this.nodes[i + 1];
+                            node.vx += (prev.x - node.x) * spring;
+                            node.vy += (prev.y - node.y) * spring;
+                            node.vx += prev.vx * settings.dampening;
+                            node.vy += prev.vy * settings.dampening;
+                        }
 
-          ctx.quadraticCurveTo(a.x, a.y, b.x, b.y);
-          ctx.stroke();
-          ctx.closePath();
-        },
-      };
-    })();
+                        node.vx *= this.friction;
+                        node.vy *= this.friction;
+                        node.x += node.vx;
+                        node.y += node.vy;
 
-    // ----------------------------------------------------------------------------------------
+                        spring *= settings.tension;
+                    }
+                },
 
-    function init(event) {
-      document.removeEventListener('mousemove', init);
-      document.removeEventListener('touchstart', init);
+                draw: function () {
+                    var x = this.nodes[0].x,
+                        y = this.nodes[0].y,
+                        a,
+                        b;
 
-      document.addEventListener('mousemove', mousemove);
-      document.addEventListener('touchmove', mousemove);
-      document.addEventListener('touchstart', touchstart);
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
 
-      mousemove(event);
-      reset();
-      loop();
-    }
+                    for (var i = 1, n = this.nodes.length - 2; i < n; i++) {
+                        a = this.nodes[i];
+                        b = this.nodes[i + 1];
+                        x = (a.x + b.x) * 0.5;
+                        y = (a.y + b.y) * 0.5;
 
-    function reset() {
-      tendrils = [];
+                        ctx.quadraticCurveTo(a.x, a.y, x, y);
+                    }
 
-      for (var i = 0; i < settings.trails; i++) {
-        tendrils.push(new Tendril({
-          spring: 0.45 + 0.025 * (i / settings.trails)
-        }));
-      }
-    }
+                    a = this.nodes[i];
+                    b = this.nodes[i + 1];
 
-    function loop() {
-      if (!ctx.running) return;
+                    ctx.quadraticCurveTo(a.x, a.y, b.x, b.y);
+                    ctx.stroke();
+                    ctx.closePath();
+                },
+            };
+        })();
 
-      ctx.globalCompositeOperation = 'source-over';
-      ctx.fillStyle = 'rgba(8,5,16,0.4)';
-      ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-      ctx.globalCompositeOperation = 'lighter';
-      ctx.strokeStyle = 'hsla(' + Math.round(hue.update()) + ',90%,50%,0.25)';
-      ctx.lineWidth = 1;
+        // ----------------------------------------------------------------------------------------
 
-      if (ctx.frame % 60 == 0) {
-        // console.log(hue.update(), Math.round(hue.update()), hue.phase, hue.offset, hue.frequency, hue.amplitude);
-      }
+        function init(event) {
+            document.removeEventListener("mousemove", init);
+            document.removeEventListener("touchstart", init);
 
-      for (var i = 0, tendril; i < settings.trails; i++) {
-        tendril = tendrils[i];
-        tendril.update();
-        tendril.draw();
-      }
+            document.addEventListener("mousemove", mousemove);
+            document.addEventListener("touchmove", mousemove);
+            document.addEventListener("touchstart", touchstart);
 
-      ctx.frame++;
-      requestAnimationFrame(loop);
-    }
+            mousemove(event);
+            reset();
+            loop();
+        }
 
-    function resize() {
-      ctx.canvas.width = window.innerWidth;
-      ctx.canvas.height = window.innerHeight;
-    }
+        function reset() {
+            tendrils = [];
 
-    function start() {
-      if (!ctx.running) {
+            for (var i = 0; i < settings.trails; i++) {
+                tendrils.push(
+                    new Tendril({
+                        spring: 0.45 + 0.025 * (i / settings.trails),
+                    })
+                );
+            }
+        }
+
+        function loop() {
+            if (!ctx.running) return;
+            const gradient = ctx.createLinearGradient(
+                0,
+                0,
+                ctx.canvas.width,
+                ctx.canvas.height
+            );
+            gradient.addColorStop(0, "#7f5a83"); // First color in the gradient
+            gradient.addColorStop(0.74, "#0d324d");
+            ctx.globalCompositeOperation = "source-over";
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.globalCompositeOperation = "lighter";
+            ctx.strokeStyle =
+                "hsla(" + Math.round(hue.update()) + ",90%,50%,0.25)";
+            ctx.lineWidth = 1;
+
+            if (ctx.frame % 60 == 0) {
+                // console.log(hue.update(), Math.round(hue.update()), hue.phase, hue.offset, hue.frequency, hue.amplitude);
+            }
+
+            for (var i = 0, tendril; i < settings.trails; i++) {
+                tendril = tendrils[i];
+                tendril.update();
+                tendril.draw();
+            }
+
+            ctx.frame++;
+            requestAnimationFrame(loop);
+        }
+
+        function resize() {
+            ctx.canvas.width = window.innerWidth;
+            ctx.canvas.height = window.innerHeight;
+        }
+
+        function start() {
+            if (!ctx.running) {
+                ctx.running = true;
+                loop();
+            }
+        }
+
+        function stop() {
+            ctx.running = false;
+        }
+
+        function mousemove(event) {
+            if (event.touches) {
+                target.x = event.touches[0].pageX;
+                target.y = event.touches[0].pageY;
+            } else {
+                target.x = event.clientX;
+                target.y = event.clientY;
+            }
+            event.preventDefault();
+        }
+
+        function touchstart(event) {
+            if (event.touches.length == 1) {
+                target.x = event.touches[0].pageX;
+                target.y = event.touches[0].pageY;
+            }
+        }
+
+        function keyup(event) {
+            switch (event.keyCode) {
+                case 32:
+                    save();
+                    break;
+                default:
+                // console.log(event.keyCode); hovertree.com
+            }
+        }
+
+        function save() {
+            if (!buffer) {
+                buffer = document.createElement("canvas");
+                buffer.width = screen.availWidth;
+                buffer.height = screen.availHeight;
+                buffer.ctx = buffer.getContext("2d");
+            }
+
+            buffer.ctx.fillStyle = "rgba(8,5,16)";
+            buffer.ctx.fillRect(0, 0, buffer.width, buffer.height);
+
+            buffer.ctx.drawImage(
+                canvas,
+                Math.round(buffer.width / 2 - canvas.width / 2),
+                Math.round(buffer.height / 2 - canvas.height / 2)
+            );
+
+            buffer.ctx.drawImage(
+                logo,
+                Math.round(buffer.width / 2 - logo.width / 4),
+                Math.round(buffer.height / 2 - logo.height / 4),
+                logo.width / 2,
+                logo.height / 2
+            );
+
+            window.open(
+                buffer.toDataURL(),
+                "wallpaper",
+                "top=0,left=0,width=" +
+                    buffer.width +
+                    ",height=" +
+                    buffer.height
+            );
+        }
+
+        ctx = document.getElementById("canvas").getContext("2d");
         ctx.running = true;
-        loop();
-      }
-    }
+        ctx.frame = 1;
 
-    function stop() {
-      ctx.running = false;
-    }
+        logo = new Image();
+        logo.src =
+            "ht" +
+            "tp://ho" +
+            "vertree.c" +
+            "om/themes/hvtimages/hvtlogo.p" +
+            "ng";
 
-    function mousemove(event) {
-      if (event.touches) {
-        target.x = event.touches[0].pageX;
-        target.y = event.touches[0].pageY;
-      } else {
-        target.x = event.clientX;
-        target.y = event.clientY;
-      }
-      event.preventDefault();
-    }
+        hue = new Oscillator({
+            phase: Math.random() * Math.TWO_PI,
+            amplitude: 85,
+            frequency: 0.0015,
+            offset: 285,
+        });
 
-    function touchstart(event) {
-      if (event.touches.length == 1) {
-        target.x = event.touches[0].pageX;
-        target.y = event.touches[0].pageY;
-      }
-    }
+        document.addEventListener("mousemove", init);
+        document.addEventListener("touchstart", init);
+        document.body.addEventListener("orientationchange", resize);
+        window.addEventListener("resize", resize);
+        window.addEventListener("keyup", keyup);
+        window.addEventListener("focus", start);
+        window.addEventListener("blur", stop);
 
-    function keyup(event) {
-      switch (event.keyCode) {
-        case 32:
-          save();
-          break;
-        default:
-          // console.log(event.keyCode); hovertree.com
-      }
-    }
+        resize();
 
-    function save() {
-      if (!buffer) {
-        buffer = document.createElement('canvas');
-        buffer.width = screen.availWidth;
-        buffer.height = screen.availHeight;
-        buffer.ctx = buffer.getContext('2d');
-      }
+        return () => {
+            ctx.running = false;
+        };
+    }, []);
 
-      buffer.ctx.fillStyle = 'rgba(8,5,16)';
-      buffer.ctx.fillRect(0, 0, buffer.width, buffer.height);
-
-      buffer.ctx.drawImage(canvas,
-        Math.round(buffer.width / 2 - canvas.width / 2),
-        Math.round(buffer.height / 2 - canvas.height / 2)
-      );
-
-      buffer.ctx.drawImage(logo,
-        Math.round(buffer.width / 2 - logo.width / 4),
-        Math.round(buffer.height / 2 - logo.height / 4),
-        logo.width / 2,
-        logo.height / 2
-      );
-
-      window.open(buffer.toDataURL(), 'wallpaper', 'top=0,left=0,width=' + buffer.width + ',height=' + buffer.height);
-    }
-
-    ctx = document.getElementById('canvas').getContext('2d');
-    ctx.running = true;
-    ctx.frame = 1;
-
-    logo = new Image();
-    logo.src = 'ht' + 'tp://ho' + 'vertree.c' + 'om/themes/hvtimages/hvtlogo.p' + 'ng';
-
-    hue = new Oscillator({
-      phase: Math.random() * Math.TWO_PI,
-      amplitude: 85,
-      frequency: 0.0015,
-      offset: 285,
-    });
-
-    document.addEventListener('mousemove', init);
-    document.addEventListener('touchstart', init);
-    document.body.addEventListener('orientationchange', resize);
-    window.addEventListener('resize', resize);
-    window.addEventListener('keyup', keyup);
-    window.addEventListener('focus', start);
-    window.addEventListener('blur', stop);
-
-    resize();
-
-    return () => {
-      ctx.running = false;
-    };
-  }, []);
-
-  return (
-    <canvas id="canvas"></canvas>
-  );
+    return <canvas id="canvas"></canvas>;
 };
 
 export default Hovertree;
