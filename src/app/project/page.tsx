@@ -56,10 +56,10 @@ const Projects = () => {
             <div
                 style={{
                     display: "flex",
-                    gap: "2rem",
+                    gap: "2.5rem",
                     alignItems: "center",
                     flexWrap: "wrap",
-                    justifyContent: "center",
+                    justifyContent: "space-between",
                 }}
             >
                 {projects.map((project, index) => (
@@ -92,12 +92,13 @@ const Projects = () => {
                         >
                             <CardContent>
                                 <CardTitle>{project.title}</CardTitle>
+                                <Spacer />
                                 {project.tech.map((tech, techIndex) => (
                                     <React.Fragment key={techIndex}>
                                         <Spacer />
                                         <Typography
                                             variant="h6"
-                                            style={{ fontWeight: 600 }}
+                                            style={{ fontWeight: 500 }}
                                         >
                                             {tech.title}
                                         </Typography>
@@ -114,11 +115,12 @@ const Projects = () => {
                                                 .map((tec) => (
                                                     <div
                                                         style={{
+                                                            fontSize: "14px",
                                                             background:
-                                                                "#434343",
+                                                                "hsla(220, 90%, 50%, 0.8)",
                                                             color: "white",
-                                                            padding: "6px 12px",
-                                                            borderRadius: "5px",
+                                                            padding: "2px 8px",
+                                                            borderRadius: "4px",
                                                         }}
                                                         key={tec}
                                                     >
@@ -137,8 +139,8 @@ const Projects = () => {
                                         width: "100%",
                                         borderRadius: "0 0 10px 10px",
                                         fontWeight: 600,
-                                        color: "#434343",
-                                        background: "rgb(203 213 225)",
+                                        color: "white",
+                                        background: "hsla(310, 100%, 56%, 0.8)",
                                         padding: ".5rem 1rem",
                                         textAlign: "center",
                                         display: "flex",
@@ -149,7 +151,7 @@ const Projects = () => {
                                 >
                                     <motion.p
                                         initial={{ x: 50, opacity: 1 }}
-                                        animate={{ x: 80, opacity: 1 }}
+                                        animate={{ x: 70, opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{
                                             repeat: Infinity,
@@ -163,7 +165,7 @@ const Projects = () => {
                                     {"SWIPE"}
                                     <motion.p
                                         initial={{ x: -50, opacity: 1 }}
-                                        animate={{ x: -80, opacity: 1 }}
+                                        animate={{ x: -70, opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{
                                             repeat: Infinity,
@@ -197,7 +199,7 @@ const Projects = () => {
                                             <LinkMotion>
                                                 <div
                                                     style={{
-                                                        textAlign: "center",
+                                                        // textAlign: "center",
                                                         fontWeight: 600,
                                                         // animation:
                                                         //     "glow 1.5s ease-in-out infinite",
@@ -220,7 +222,7 @@ const Projects = () => {
 
 const MainContainer = styled.div`
     position: relative;
-    width: 340px;
+    width: 300px;
     height: 400px;
     background: none;
     /* pointer-events: none;  */
@@ -238,7 +240,6 @@ const CardWrapper = styled.div`
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
     background: #ffc728;
-    color: #434343;
     touch-action: pan-x; /* Add this line */
     pointer-events: auto;
     /* touch-action: pan-x; */
@@ -261,14 +262,16 @@ const CardContent = styled.div`
     background: white;
     border-radius: 10px;
     color: #434343;
+    scrollbar-width: none;
 `;
 
 const CardTitle = styled.h1`
-    font-size: 24px;
+    font-size: 22px;
 `;
 
 const BackCardContent = styled(CardContent)`
     position: absolute;
+    overflow: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -277,11 +280,11 @@ const BackCardContent = styled(CardContent)`
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    overflow: hidden;
     background: white;
     text-align: center;
     color: #434343;
     transform: rotateY(180deg);
+    scrollbar-width: none;
 `;
 
 export default Projects;
