@@ -47,12 +47,11 @@ const Projects = () => {
             onMouseUp={handleMouseUp}
             onTouchEnd={handleTouchEnd}
         >
-            <Title>
+            <Title style={{ textAlign: "center" }}>
                 {title.map((letter, index) => (
                     <Hello key={index}>{letter}</Hello>
                 ))}
             </Title>
-            <Spacer />
             <div
                 style={{
                     display: "flex",
@@ -60,6 +59,7 @@ const Projects = () => {
                     alignItems: "center",
                     flexWrap: "wrap",
                     justifyContent: "space-between",
+                    marginTop: "5vw",
                 }}
             >
                 {projects.map((project, index) => (

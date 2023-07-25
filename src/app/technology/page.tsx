@@ -14,12 +14,16 @@ const Technology = () => {
     const title = "Technology".split("");
     return (
         <div>
-            <Title>
+            <Title style={{ textAlign: "center" }}>
                 {title.map((letter, index) => (
                     <Hello key={index}>{letter}</Hello>
                 ))}
             </Title>
-            <Spacer />
+            <Spacer
+                style={{
+                    marginTop: "5vw",
+                }}
+            />
             {technologies.map((tech) => (
                 <div key={tech.title}>
                     <Spacer />
