@@ -53,7 +53,7 @@ const Home = () => {
             <Hovertree />
             <MainContainer>
                 {sections.map((section, index) => (
-                    <AnimatedComponent>
+                    <AnimatedComponent duration={0} threshold={0}>
                         <SectionWrapper
                             ref={useIntersectionObserver(index)}
                             notFull={section.notFull}
@@ -70,6 +70,8 @@ const Home = () => {
 const MainContainer = styled.div`
     width: 100%;
     height: 100%;
+    display: flex;
+    justify-content: space-between;
 `;
 
 const MainWrapper = styled.div`

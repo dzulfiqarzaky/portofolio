@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import React, { ReactElement, useEffect, useState } from "react";
+import { AnimationControls, motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const useIntroAnimation = (controls, duration = 0.5) => {
+const useIntroAnimation = (controls: AnimationControls, duration = 0.5) => {
     useEffect(() => {
         controls.start({
             opacity: 1, // Start with full opacity (fade in)
@@ -15,7 +15,7 @@ const useIntroAnimation = (controls, duration = 0.5) => {
     }, [controls, duration]);
 };
 
-const useOutroAnimation = (controls, duration = 0.5) => {
+const useOutroAnimation = (controls: AnimationControls, duration = 0.5) => {
     useEffect(() => {
         controls.start({
             opacity: 0, // Fade out to 0 opacity (fade out)
@@ -33,6 +33,10 @@ const AnimatedComponent = ({
     threshold = 0.5,
     children,
     ...otherProps
+}: {
+    children: ReactElement<any, any>;
+    duration: number;
+    threshold: number;
 }) => {
     const { ref, inView } = useInView({ threshold });
     const controls = useAnimation();
