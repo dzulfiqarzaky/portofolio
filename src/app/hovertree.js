@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 
+export let colorHoverTree = "";
 const Hovertree = () => {
     useEffect(() => {
         let ctx,
@@ -181,7 +182,8 @@ const Hovertree = () => {
             ctx.strokeStyle =
                 "hsla(" + Math.round(hue.update()) + ",90%,50%,0.25)";
             ctx.lineWidth = 1;
-
+            colorHoverTree =
+                "hsla(" + Math.round(hue.update()) + ",90%,60%,0.90)";
             if (ctx.frame % 60 == 0) {
                 // console.log(hue.update(), Math.round(hue.update()), hue.phase, hue.offset, hue.frequency, hue.amplitude);
             }

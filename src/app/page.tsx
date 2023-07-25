@@ -1,78 +1,78 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { LegacyRef, useEffect, useState } from "react";
 import { styled } from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
 import Hovertree from "./hovertree";
 import Main from "./main/page";
 import Education from "./education/page";
 import Experiences from "./experience/page";
 import Technology from "./technology/page";
 import Projects from "./project/page";
+import AnimatedComponent from "@/components/HelloIntro";
 
 interface SectionWrapperProps {
     notFull?: boolean;
 }
 
-const Home = () => {
-    const sections = [
-        {
-            component: <Main />,
-            notFull: false,
-            path: "/",
-        },
-        {
-            component: <Education />,
-            notFull: false,
-            path: "/education",
-        },
-        {
-            component: <Experiences  />,
-            notFull: false,
-            path: "/experiences",
-        },
-        {
-            component: <Technology  />,
-            notFull: true,
-            path: "/technology",
-        },
-        {
-            component: <Projects />,
-            notFull: true,
-            path: "/projects",
-        },
-        // Add other sections here
-    ];
+const sections = [
+    {
+        component: <Main />,
+        notFull: false,
+        path: "/",
+    },
+    {
+        component: <Education />,
+        notFull: false,
+        path: "/education",
+    },
+    {
+        component: <Experiences />,
+        notFull: false,
+        path: "/experiences",
+    },
+    {
+        component: <Technology />,
+        notFull: true,
+        path: "/technology",
+    },
+    {
+        component: <Projects />,
+        notFull: true,
+        path: "/projects",
+    },
+    // Add other sections here
+];
 
+const Home = () => {
+    const useIntersectionObserver = (
+        index: number
+    ): LegacyRef<HTMLDivElement> | undefined => {
+        return undefined;
+    };
     return (
         <MainContainer>
             <Hovertree />
             <MainContainer>
-                <AnimatePresence mode="wait">
-                    {sections.map((section, index) => (
-                        <motion.div
-                            key={section.path}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ delay: 0.5 }}
+                {sections.map((section, index) => (
+                    <AnimatedComponent>
+                        <SectionWrapper
+                            ref={useIntersectionObserver(index)}
+                            notFull={section.notFull}
                         >
-                            <SectionWrapper notFull={section.notFull}>
-                                <MainWrapper>{section.component}</MainWrapper>
-                            </SectionWrapper>
-                        </motion.div>
-                    ))}
-                </AnimatePresence>
+                            <MainWrapper>{section.component}</MainWrapper>
+                        </SectionWrapper>
+                    </AnimatedComponent>
+                ))}
             </MainContainer>
         </MainContainer>
     );
 };
 
-const MainContainer = styled(motion.div)`
+const MainContainer = styled.div`
     width: 100%;
     height: 100%;
 `;
 
-const MainWrapper = styled(motion.div)`
+const MainWrapper = styled.div`
     padding: 1rem;
     max-width: 1180px;
     margin: 0 auto;
@@ -80,9 +80,8 @@ const MainWrapper = styled(motion.div)`
 
 const SectionWrapper = styled.div<SectionWrapperProps>`
     width: 100vw;
-    height: ${(props) => (props?.notFull ? "auto" : "100vh")};
+    height: 100vh;
     display: flex;
     align-items: center;
 `;
-
 export default Home;

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { Typography } from "@mui/material";
 import Hello from "./HelloMotion";
+import { colorHoverTree } from "@/app/hovertree";
 
 export interface CustomLink {
     title: string;
@@ -14,6 +15,7 @@ export interface ContactsInterface {
 
 interface StyledLinkProps {
     glow?: boolean;
+    colorHoverTree: string;
 }
 
 const Container = styled.div`
@@ -34,7 +36,7 @@ const Address = styled(Typography)`
 
 const StyledLink = styled.a<StyledLinkProps>`
     text-decoration: none;
-    color: red;
+    color: hsla(308, 90%, 60%, 0.9);
     font-weight: bold;
     /* padding: .13rem; */
 
@@ -52,9 +54,17 @@ const StyledLink = styled.a<StyledLinkProps>`
         props.glow &&
         `
     &:hover {
-      background: red;
-      color: #1d1d1d;
+      padding: 2px;
+      background-color: hsla(308,90%,60%,0.90);
+      color: #ffff;
+      position: relative;
     }
+
+    &:not(:hover) {
+        transition: background-color 3s , color 3s, position 3s;
+        background-color: initial;
+      }
+    
   `}
 `;
 
@@ -63,17 +73,16 @@ const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
         <Container>
             <Address>{contacts.address}</Address>|
             {contacts.link.map((ctx, index) => (
-                <Hello>
-                    <StyledLink
-                        href={ctx.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        key={index}
-                        glow
-                    >
-                        {ctx.title}
-                    </StyledLink>
-                </Hello>
+                <StyledLink
+                    colorHoverTree={colorHoverTree}
+                    href={ctx.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={index}
+                    glow
+                >
+                    <Hello>{ctx.title}</Hello>
+                </StyledLink>
             ))}
         </Container>
     );

@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
-import useColorRandomizer from "@/app/useColorRandomizer";
+import { colorHoverTree } from "@/app/hovertree";
 
 const Hello = ({ children }: any) => {
-    const { color, setPickedColor } = useColorRandomizer();
-
     const control = useAnimationControls();
     const [isHovered, setIsHovered] = useState(false);
     const elasticText = () => {
@@ -22,8 +20,9 @@ const Hello = ({ children }: any) => {
             },
         });
         setIsHovered(true);
-        setPickedColor(true);
     };
+
+    console.log(colorHoverTree, "<<<<");
     return (
         <motion.span
             style={{ display: "inline-block" }}
@@ -35,15 +34,39 @@ const Hello = ({ children }: any) => {
             }}
             onAnimationComplete={() => setIsHovered(false)}
         >
-            <span hidden={isHovered}>{children}</span>
-            <span
-                style={{
-                    color: color ?? "#fff",
-                }}
-                hidden={!isHovered}
-            >
-                {children}
-            </span>
+            {typeof children === "string" ? (
+                <>
+                    <span
+                        style={{
+                            zIndex: -10,
+                            position: "fixed",
+                            color: colorHoverTree,
+                            left: -5,
+                            top: 5,
+                        }}
+                        hidden={!isHovered}
+                    >
+                        {children}
+                    </span>
+                    <span style={{ zIndex: 10 }}>{children}</span>
+                </>
+            ) : (
+                <>
+                    {/* <div
+                        style={{
+                            zIndex: -10,
+                            position: "fixed",
+                            backgroundColor: colorHoverTree,
+                            left: -5,
+                            top: 5,
+                            width: "300px",
+                            height: "300px",
+                        }}
+                        hidden={!isHovered}
+                    ></div> */}
+                    <span style={{ zIndex: 10 }}>{children}</span>
+                </>
+            )}
         </motion.span>
     );
 };
