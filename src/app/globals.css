@@ -118,7 +118,7 @@ a {
 }
 
 .flat-button {
-    color: rgb(226, 80, 80);
+    color: hsla(310, 100%, 63%, 0.9);
     /* font-size: 14px;
   letter-spacing: 4px; */
     text-decoration: none;
@@ -139,7 +139,7 @@ a {
 }
 
 .flat-button span.bg {
-    background: rgb(226, 80, 80);
+    background: hsla(308, 90%, 60%, 0.9);
     width: 0;
     height: 100%;
     position: absolute;
