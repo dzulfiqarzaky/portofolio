@@ -57,13 +57,13 @@ const StyledLink = styled.a<StyledLinkProps>`
       padding: 2px;
       background-color: hsla(308,90%,60%,0.90);
       color: #ffff;
-      position: relative;
+    //   position: relative;
     }
 
-    &:not(:hover) {
-        transition: background-color 3s , color 3s, position 3s;
-        background-color: initial;
-      }
+    // &:not(:hover) {
+    //     transition: background-color 3s , color 3s, position 3s;
+    //     background-color: initial;
+    //   }
     
   `}
 `;
