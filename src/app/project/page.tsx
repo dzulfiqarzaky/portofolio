@@ -49,7 +49,7 @@ const Projects = () => {
             onTouchEnd={handleTouchEnd}
         >
             <IntroMotion start="right" end="bottom">
-                <Title style={{ textAlign: "center", marginBottom: "8vw" }}>
+                <Title style={{ textAlign: "center", marginBottom: "10vw" }}>
                     {title.map((letter, index) => (
                         <Hello key={index}>{letter}</Hello>
                     ))}
@@ -61,7 +61,7 @@ const Projects = () => {
                     gap: "2.5rem",
                     alignItems: "center",
                     flexWrap: "wrap",
-                    justifyContent: "space-between",
+                    justifyContent: "space-around",
                 }}
             >
                 {projects.map((project, index) => (
@@ -234,6 +234,14 @@ const MainContainer = styled.div`
     height: 400px;
     background: none;
     /* pointer-events: none;  */
+
+    @media screen and (max-width: 768px) {
+        width: 270px;
+        height: 400px;
+    }
+
+    @media screen and (max-width: 1200px) {
+    }
 `;
 
 const CardWrapper = styled.div`

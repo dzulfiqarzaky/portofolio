@@ -71,7 +71,7 @@ const StyledLink = styled.a<StyledLinkProps>`
 const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
     return (
         <Container>
-            <Address>{contacts.address}</Address>|
+            {/* <Address>{contacts.address}</Address>| */}
             {contacts.link.map((ctx, index) => (
                 <StyledLink
                     colorHoverTree={colorHoverTree}

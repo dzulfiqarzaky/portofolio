@@ -1,5 +1,5 @@
 const main = {
-    title: "HI, I'M DZULFIQAR ZAKY",
+    title: "HI, I'M ZAKY",
     description: [
         "Creative, detail-oriented with a deep interest in learning new technology, I have a passion for creating beautiful and functional websites. I have experience working with a variety of technologies, I love painting internet canvas with line of code. \n I enjoy building websites that are both visually appealing and user-friendly.",
         // "I am also a team player and enjoy collaborating with other professionals to create innovative solutions to complex problems. I am always looking for ways to improve my skills and stay up-to-date with the latest web development trends."
