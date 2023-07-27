@@ -23,7 +23,6 @@ const Hello = ({ children }: any) => {
         setIsHovered(true);
     };
 
-    console.log(colorHoverTree, "<<<<");
     return (
         <motion.span
             style={{ display: "inline-block" }}

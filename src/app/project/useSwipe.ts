@@ -16,7 +16,6 @@ const useSwipe = () => {
                 const found = prev.findIndex(
                     (swiped) => swiped.index === index
                 );
-                console.log(found);
                 if (found !== -1) {
                     const updatedSwipedIndex = [...prev];
                     updatedSwipedIndex[found].swiped =
@@ -50,7 +49,6 @@ const useSwipe = () => {
         event: React.MouseEvent<HTMLDivElement>
     ) => {
         touchStartX.current = event.clientX;
-        console.log(index, 111);
         setChoosenIndex(index);
     };
 
@@ -75,7 +73,6 @@ const useSwipe = () => {
             (choosenIndex || choosenIndex === 0) &&
             (deltaX > 50 || deltaX < -50)
         ) {
-            console.log("masuk");
             swipeFn(choosenIndex);
         }
 
