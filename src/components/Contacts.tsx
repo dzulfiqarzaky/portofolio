@@ -60,10 +60,7 @@ const StyledLink = styled.a<StyledLinkProps>`
       position: relative;
     }
 
-    &:not(:hover) {
-        transition: background-color 3s , color 3s, position 3s;
-        background-color: initial;
-      }
+    
     
   `}
 `;
