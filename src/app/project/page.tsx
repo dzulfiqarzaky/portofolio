@@ -47,7 +47,7 @@ const Projects = () => {
             onMouseUp={handleMouseUp}
             onTouchEnd={handleTouchEnd}
         >
-            <Title style={{ textAlign: "center" }}>
+            <Title style={{ textAlign: "center", marginBottom: "8vw" }}>
                 {title.map((letter, index) => (
                     <Hello key={index}>{letter}</Hello>
                 ))}
@@ -59,7 +59,6 @@ const Projects = () => {
                     alignItems: "center",
                     flexWrap: "wrap",
                     justifyContent: "space-between",
-                    marginTop: "5vw",
                 }}
             >
                 {projects.map((project, index) => (

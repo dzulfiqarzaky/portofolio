@@ -19,26 +19,30 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h3`
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
 
+    @media screen and (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+
     @media screen and (min-width: 1200px) {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 `;
 
 export const StyledDescription = styled.p`
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
     text-align: justify;
     text-justify: inter-word;
 
     @media screen and (min-width: 768px) {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     @media screen and (min-width: 1200px) {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 `;
 
