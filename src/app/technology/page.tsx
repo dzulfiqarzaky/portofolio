@@ -5,31 +5,12 @@ import { ReactSVG } from "react-svg";
 import Hello from "../../components/HelloMotion";
 import { technologies } from "../../constants";
 import styled from "styled-components";
+import IntroMotion from "@/components/IntroMotion";
 
 export interface TechnologiesInterface {
     title: string;
     data: { title: string; url: string }[];
 }
-
-const TechnologyWrapper = styled.div`
-    /* Center the title */
-    text-align: center;
-`;
-
-const TechnologyContainer = styled.div`
-    /* Gap between items */
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-`;
-
-const TechIconWrapper = styled.div`
-    background: white;
-    padding: 0.5rem;
-    border: 3px solid rgb(203, 213, 225);
-    border-radius: 10px;
-`;
 
 const Technology = () => {
     const title = "Technology".split("");
@@ -56,32 +37,40 @@ const Technology = () => {
 
     return (
         <TechnologyWrapper>
-            <Title>
-                {title.map((letter, index) => (
-                    <Hello key={index}>{letter}</Hello>
-                ))}
-            </Title>
+            <IntroMotion start="right" end="bottom">
+                <Title>
+                    {title.map((letter, index) => (
+                        <Hello key={index}>{letter}</Hello>
+                    ))}
+                </Title>
+            </IntroMotion>
             <Spacer style={{ marginTop: "5vw" }} />
             {technologies.map((tech) => (
                 <div key={tech.title}>
                     <Spacer />
-                    <SubTitle>{tech.title}</SubTitle>
+                    <IntroMotion start="right" end="bottom">
+                        <SubTitle>{tech.title}</SubTitle>
+                    </IntroMotion>
                     <Spacer />
                     <TechnologyContainer>
                         {tech.data.map((tch) => (
                             <Hello key={tch.title}>
-                                <TechIconWrapper>
-                                    <ReactSVG
-                                        src={tch.url}
-                                        beforeInjection={(svg) => {
-                                            svg.classList.add("svg-class-name");
-                                            svg.setAttribute(
-                                                "style",
-                                                `width: ${svgSize}px; height: ${svgSize}px;`
-                                            );
-                                        }}
-                                    />
-                                </TechIconWrapper>
+                                <IntroMotion start="right" end="bottom">
+                                    <TechIconWrapper>
+                                        <ReactSVG
+                                            src={tch.url}
+                                            beforeInjection={(svg) => {
+                                                svg.classList.add(
+                                                    "svg-class-name"
+                                                );
+                                                svg.setAttribute(
+                                                    "style",
+                                                    `width: ${svgSize}px; height: ${svgSize}px;`
+                                                );
+                                            }}
+                                        />
+                                    </TechIconWrapper>
+                                </IntroMotion>
                             </Hello>
                         ))}
                     </TechnologyContainer>
@@ -90,5 +79,25 @@ const Technology = () => {
         </TechnologyWrapper>
     );
 };
+
+const TechnologyWrapper = styled.div`
+    /* Center the title */
+    text-align: center;
+`;
+
+const TechnologyContainer = styled.div`
+    /* Gap between items */
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+`;
+
+const TechIconWrapper = styled.div`
+    background: white;
+    padding: 0.5rem;
+    border: 3px solid rgb(203, 213, 225);
+    border-radius: 10px;
+`;
 
 export default Technology;

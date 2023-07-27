@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import { colorHoverTree } from "@/app/hovertree";
+import styled from "styled-components";
 
 const Hello = ({ children }: any) => {
     const control = useAnimationControls();
@@ -36,39 +37,43 @@ const Hello = ({ children }: any) => {
         >
             {typeof children === "string" ? (
                 <>
-                    <span
-                        style={{
-                            zIndex: -10,
-                            position: "fixed",
-                            color: colorHoverTree,
-                            left: -5,
-                            top: 5,
-                        }}
+                    <StyledSpan
+                        style={
+                            {
+                                // color: colorHoverTree,
+                            }
+                        }
                         hidden={!isHovered}
                     >
                         {children}
-                    </span>
+                    </StyledSpan>
                     <span style={{ zIndex: 10 }}>{children}</span>
                 </>
             ) : (
                 <>
-                    {/* <div
-                        style={{
-                            zIndex: -10,
-                            position: "fixed",
-                            backgroundColor: colorHoverTree,
-                            left: -5,
-                            top: 5,
-                            width: "300px",
-                            height: "300px",
-                        }}
-                        hidden={!isHovered}
-                    ></div> */}
                     <span style={{ zIndex: 10 }}>{children}</span>
                 </>
             )}
         </motion.span>
     );
 };
+
+const StyledSpan = styled.span`
+    z-index: -10;
+    color: hsla(310, 100%, 56%, 0.9);
+    position: fixed;
+    left: -2px;
+    top: 1px;
+
+    @media screen and (min-width: 768px) {
+        left: -3px;
+        top: 2px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        left: -5px;
+        top: 3px;
+    }
+`;
 
 export default Hello;

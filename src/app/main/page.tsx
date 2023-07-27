@@ -4,6 +4,7 @@ import Contacts, { ContactsInterface } from "../../components/Contacts";
 import { Spacer, StyledDescription, Title } from "../../components/style";
 import Hello from "../../components/HelloMotion";
 import { main, contacts } from "../../constants";
+import IntroMotion from "@/components/IntroMotion";
 interface MainInterface {
     main: {
         title: string | string[];
@@ -22,26 +23,32 @@ const Main = () => {
         <>
             <Container>
                 <div>
-                    <Title style={{ display: "flex" }}>
-                        {intro.map((letter, index) => (
-                            <Hello key={index}>
-                                {letter === " " ? "\u00A0" : letter}
-                            </Hello>
-                        ))}
-                    </Title>
+                    <IntroMotion start="right" end="bottom">
+                        <Title style={{ display: "flex" }}>
+                            {intro.map((letter, index) => (
+                                <Hello key={index}>
+                                    {letter === " " ? "\u00A0" : letter}
+                                </Hello>
+                            ))}
+                        </Title>
+                    </IntroMotion>
                     <Spacer />
-                    <div>
-                        {main.description.map((des, index) => (
-                            <StyledDescription key={index}>
-                                {des}
-                            </StyledDescription>
-                        ))}
-                    </div>
+                    <IntroMotion start="right" end="bottom">
+                        <div>
+                            {main.description.map((des, index) => (
+                                <StyledDescription key={index}>
+                                    {des}
+                                </StyledDescription>
+                            ))}
+                        </div>
+                    </IntroMotion>
                     <Spacer />
-                    <ContactsWrapper>
-                        <div></div>
-                        <Contacts contacts={contacts} />
-                    </ContactsWrapper>
+                    <IntroMotion start="right" end="bottom">
+                        <ContactsWrapper>
+                            <div></div>
+                            <Contacts contacts={contacts} />
+                        </ContactsWrapper>
+                    </IntroMotion>
                 </div>
             </Container>
         </>
