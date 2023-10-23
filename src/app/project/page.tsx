@@ -1,15 +1,16 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
-import { Spacer, Title } from "../../components/style";
-import Hello from "../../components/HelloMotion";
-import LinkMotion from "../../components/LinkMotion";
 import { motion } from "framer-motion";
-import { projects } from "../../constants";
-import useSwipe from "./useSwipe";
-import IntroMotion from "@/components/IntroMotion";
+
+import { Spacer } from "@/shared/style";
+import { projects } from "@/shared/constants";
+import { IntroMotion, ProgressMotion } from "@/shared/components/motions/";
+import { Title } from "@/shared/components";
+import { TITLE } from "@/shared/constants/common";
+import useSwipe from "@/shared/hooks/useSwipe";
 
 interface TechnologyInterface {
     title: string;
@@ -40,21 +41,11 @@ const Projects = () => {
         handleMouseMove,
     } = useSwipe();
 
-    const title = "Projects".split("");
+    const title = TITLE.PROJECTS.split("");
 
     return (
-        <Box
-            sx={{ pt: 4 }}
-            onMouseUp={handleMouseUp}
-            onTouchEnd={handleTouchEnd}
-        >
-            <IntroMotion start="right" end="bottom">
-                <Title style={{ textAlign: "center", marginBottom: "10vw" }}>
-                    {title.map((letter, index) => (
-                        <Hello key={index}>{letter}</Hello>
-                    ))}
-                </Title>
-            </IntroMotion>
+        <Box sx={{ pt: 4 }} onMouseUp={handleMouseUp} onTouchEnd={handleTouchEnd}>
+            <Title title={title} />
             <div
                 style={{
                     display: "flex",
@@ -69,27 +60,17 @@ const Projects = () => {
                         <MainContainer key={index}>
                             <CardWrapper
                                 className={
-                                    swipedIndex?.filter(
-                                        (swiped) => swiped?.index === index
-                                    ) &&
-                                    swipedIndex?.filter(
-                                        (swiped) => swiped?.index === index
-                                    )[0]?.swiped
+                                    swipedIndex?.filter((swiped) => swiped?.index === index) &&
+                                    swipedIndex?.filter((swiped) => swiped?.index === index)[0]?.swiped
                                         ? "swiped"
                                         : ""
                                 }
-                                onTouchStart={(
-                                    event: React.TouchEvent<HTMLDivElement>
-                                ) => handleTouchStart(index, event)}
-                                onTouchMove={(
-                                    event: React.TouchEvent<HTMLDivElement>
-                                ) => handleTouchMove(index, event)}
-                                onMouseDown={(
-                                    event: React.MouseEvent<HTMLDivElement>
-                                ) => handleMouseDown(index, event)}
-                                onMouseMove={(
-                                    event: React.MouseEvent<HTMLDivElement>
-                                ) => handleMouseMove(index, event)}
+                                onTouchStart={(event: React.TouchEvent<HTMLDivElement>) =>
+                                    handleTouchStart(index, event)
+                                }
+                                onTouchMove={(event: React.TouchEvent<HTMLDivElement>) => handleTouchMove(index, event)}
+                                onMouseDown={(event: React.MouseEvent<HTMLDivElement>) => handleMouseDown(index, event)}
+                                onMouseMove={(event: React.MouseEvent<HTMLDivElement>) => handleMouseMove(index, event)}
                                 onMouseUp={handleMouseUp}
                                 onTouchEnd={handleTouchEnd}
                             >
@@ -99,10 +80,7 @@ const Projects = () => {
                                     {project.tech.map((tech, techIndex) => (
                                         <React.Fragment key={techIndex}>
                                             <Spacer />
-                                            <Typography
-                                                variant="h6"
-                                                style={{ fontWeight: 500 }}
-                                            >
+                                            <Typography variant="h6" style={{ fontWeight: 500 }}>
                                                 {tech.title}
                                             </Typography>
                                             <div
@@ -113,26 +91,20 @@ const Projects = () => {
                                                     paddingBottom: "1rem",
                                                 }}
                                             >
-                                                {tech.description
-                                                    .split(",")
-                                                    .map((tec) => (
-                                                        <div
-                                                            style={{
-                                                                fontSize:
-                                                                    "14px",
-                                                                background:
-                                                                    "hsla(220, 90%, 50%, 0.8)",
-                                                                color: "white",
-                                                                padding:
-                                                                    "2px 8px",
-                                                                borderRadius:
-                                                                    "4px",
-                                                            }}
-                                                            key={tec}
-                                                        >
-                                                            {tec}
-                                                        </div>
-                                                    ))}
+                                                {tech.description.split(",").map((tec) => (
+                                                    <div
+                                                        style={{
+                                                            fontSize: "14px",
+                                                            background: "hsla(220, 90%, 50%, 0.8)",
+                                                            color: "white",
+                                                            padding: "2px 8px",
+                                                            borderRadius: "4px",
+                                                        }}
+                                                        key={tec}
+                                                    >
+                                                        {tec}
+                                                    </div>
+                                                ))}
                                             </div>
                                         </React.Fragment>
                                     ))}
@@ -146,14 +118,11 @@ const Projects = () => {
                                             borderRadius: "0 0 10px 10px",
                                             fontWeight: 600,
                                             color: "white",
-                                            background:
-                                                "hsla(310, 100%, 56%, 0.8)",
+                                            background: "hsla(310, 100%, 56%, 0.8)",
                                             padding: ".5rem 1rem",
                                             textAlign: "center",
                                             display: "flex",
                                             justifyContent: "space-between",
-                                            // animation:
-                                            //     "glow 1.5s ease-in-out infinite",
                                         }}
                                     >
                                         <motion.p
@@ -203,18 +172,15 @@ const Projects = () => {
                                                 rel="noopener noreferrer"
                                                 key={linkIndex}
                                             >
-                                                <LinkMotion>
+                                                <ProgressMotion>
                                                     <div
                                                         style={{
-                                                            // textAlign: "center",
                                                             fontWeight: 600,
-                                                            // animation:
-                                                            //     "glow 1.5s ease-in-out infinite",
                                                         }}
                                                     >
                                                         {link.title}
                                                     </div>
-                                                </LinkMotion>
+                                                </ProgressMotion>
                                             </a>
                                         ))}
                                     </div>

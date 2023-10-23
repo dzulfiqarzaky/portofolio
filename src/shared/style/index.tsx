@@ -5,7 +5,7 @@ export const Spacer = styled.div`
     margin-top: 1rem;
 `;
 
-export const Title = styled.h1`
+export const TitleStyled = styled.h1`
     font-size: 1.5rem;
     font-weight: 600;
 

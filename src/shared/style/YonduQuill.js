@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export let colorHoverTree = "";
-const Hovertree = () => {
+const YonduQuill = () => {
     useEffect(() => {
         let ctx,
             hue,
@@ -70,8 +70,7 @@ const Hovertree = () => {
             return {
                 init: function (options) {
                     this.spring = options.spring + Math.random() * 0.1 - 0.05;
-                    this.friction =
-                        settings.friction + Math.random() * 0.01 - 0.005;
+                    this.friction = settings.friction + Math.random() * 0.01 - 0.005;
                     this.nodes = [];
 
                     for (var i = 0, node; i < settings.size; i++) {
@@ -167,23 +166,16 @@ const Hovertree = () => {
 
         function loop() {
             if (!ctx.running) return;
-            const gradient = ctx.createLinearGradient(
-                0,
-                0,
-                ctx.canvas.width,
-                ctx.canvas.height
-            );
+            const gradient = ctx.createLinearGradient(0, 0, ctx.canvas.width, ctx.canvas.height);
             gradient.addColorStop(0, "#7f5a83"); // First color in the gradient
             gradient.addColorStop(0.74, "#0d324d");
             ctx.globalCompositeOperation = "source-over";
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             ctx.globalCompositeOperation = "lighter";
-            ctx.strokeStyle =
-                "hsla(" + Math.round(hue.update()) + ",90%,50%,0.25)";
+            ctx.strokeStyle = "hsla(" + Math.round(hue.update()) + ",90%,50%,0.25)";
             ctx.lineWidth = 1;
-            colorHoverTree =
-                "hsla(" + Math.round(hue.update()) + ",90%,60%,0.90)";
+            colorHoverTree = "hsla(" + Math.round(hue.update()) + ",90%,60%,0.90)";
             if (ctx.frame % 60 == 0) {
                 // console.log(hue.update(), Math.round(hue.update()), hue.phase, hue.offset, hue.frequency, hue.amplitude);
             }
@@ -270,10 +262,7 @@ const Hovertree = () => {
             window.open(
                 buffer.toDataURL(),
                 "wallpaper",
-                "top=0,left=0,width=" +
-                    buffer.width +
-                    ",height=" +
-                    buffer.height
+                "top=0,left=0,width=" + buffer.width + ",height=" + buffer.height
             );
         }
 
@@ -282,12 +271,7 @@ const Hovertree = () => {
         ctx.frame = 1;
 
         logo = new Image();
-        logo.src =
-            "ht" +
-            "tp://ho" +
-            "vertree.c" +
-            "om/themes/hvtimages/hvtlogo.p" +
-            "ng";
+        logo.src = "ht" + "tp://ho" + "vertree.c" + "om/themes/hvtimages/hvtlogo.p" + "ng";
 
         hue = new Oscillator({
             phase: Math.random() * Math.TWO_PI,
@@ -314,4 +298,4 @@ const Hovertree = () => {
     return <canvas id="canvas"></canvas>;
 };
 
-export default Hovertree;
+export default YonduQuill;
