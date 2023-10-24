@@ -10,6 +10,9 @@ export const COMMON = {
     STRING: "string",
     EMPTY_SPACE: " ",
     SPACE: "\u00A0",
+    SWIPE: "SWIPE",
+    ARROW_LEFT: "  <<<  ",
+    ARROW_RIGHT: "  >>>  ",
 } as const;
 
 export const ANIMATION_DIRECTION = {
