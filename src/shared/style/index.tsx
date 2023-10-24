@@ -10,11 +10,11 @@ export const TitleStyled = styled.h1`
     font-weight: 600;
 
     @media screen and (min-width: 768px) {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     @media screen and (min-width: 1200px) {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 `;
 
@@ -32,21 +32,23 @@ export const SubTitle = styled.h3`
 `;
 
 export const StyledDescription = styled.p`
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 400;
     text-align: justify;
     text-justify: inter-word;
+    line-height: 1.5;
 
     @media screen and (min-width: 768px) {
         font-size: 1rem;
     }
 
     @media screen and (min-width: 1200px) {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
     }
 `;
 
 export const StyledLink = styled(Link)<{ glow?: boolean }>`
+    font-size: 0.75rem;
     text-decoration: none;
     font-weight: bold;
 

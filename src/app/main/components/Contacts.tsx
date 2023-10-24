@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import { colorHoverTree } from "@/shared/style/YonduQuill";
 import { IntroMotion, BounceMotion } from "@/shared/components/motions";
 import { ANIMATION_DIRECTION, HTML_TAG } from "@/shared/constants/common";
 
@@ -15,7 +14,6 @@ export interface ContactsInterface {
 
 interface StyledLinkProps {
     glow?: boolean;
-    colorHoverTree: string;
 }
 
 const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
@@ -26,7 +24,6 @@ const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
                 <ContactsContainerStyled>
                     {contacts.link.map((contact, index) => (
                         <ContactsLinkStyled
-                            colorHoverTree={colorHoverTree}
                             href={contact.url}
                             target={HTML_TAG.TARGET}
                             rel={HTML_TAG.REL}

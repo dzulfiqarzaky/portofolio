@@ -48,3 +48,9 @@ export const CSS_CLASS = {
     BASE: "base",
     TEXT: "text",
 } as const;
+
+export const SCREEN_SIZE = {
+    MOBILE: 767,
+    TABLET: 1024,
+    DESKTOP: 1200,
+} as const;

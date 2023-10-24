@@ -23,7 +23,7 @@ const Section = ({ sections }: { sections: SectionProps[] }) =>
     ));
 
 const ChildrenWrapper = styled(motion.div)<{ section: SectionProps }>`
-    padding: 5rem;
+    padding: 0rem;
     border-radius: 10px;
     width: 90%;
     max-width: 1180px;
@@ -32,13 +32,13 @@ const ChildrenWrapper = styled(motion.div)<{ section: SectionProps }>`
     background: url("../public/5162027.jpg");
     margin-top: ${(p) => (p.section.notFull ? "10rem" : 0)};
 
-    @media screen and (max-width: 768px) {
-        padding: 0rem;
+    @media screen and (min-width: 768px) {
+        padding: 2.5rem;
         width: ${(p) => (p.section.path === "/projects" ? "100%" : "90%")};
     }
 
-    @media screen and (max-width: 1200px) {
-        padding: 3rem;
+    @media screen and (min-width: 1200px) {
+        padding: 5rem;
         width: ${(p) => (p.section.path === "/projects" ? "100%" : "90%")};
     }
 `;

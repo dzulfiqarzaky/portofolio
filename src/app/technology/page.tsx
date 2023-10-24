@@ -1,17 +1,11 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { ReactSVG } from "react-svg";
-import { Spacer, SubTitle } from "@/shared/style";
-import { IntroMotion, BounceMotion } from "@/shared/components/motions";
+import { Spacer } from "@/shared/style";
 import { Title } from "@/shared/components";
 import { technologies } from "@/shared/constants";
-import { TITLE } from "@/shared/constants/common";
-
-export interface TechnologiesInterface {
-    title: string;
-    data: { title: string; url: string }[];
-}
+import { SCREEN_SIZE, TITLE } from "@/shared/constants/common";
+import Description from "./components/Description";
 
 const Technology = () => {
     const title = TITLE.TECHNOLOGY.split("");
@@ -20,12 +14,12 @@ const Technology = () => {
     useEffect(() => {
         const updateSvgSize = () => {
             const screenWidth = window.innerWidth;
-            if (screenWidth >= 1200) {
-                setSvgSize(52);
-            } else if (screenWidth >= 768) {
-                setSvgSize(36);
+            if (screenWidth >= SCREEN_SIZE.DESKTOP) {
+                setSvgSize(screenWidth * 0.03);
+            } else if (screenWidth >= SCREEN_SIZE.MOBILE) {
+                setSvgSize(screenWidth * 0.04);
             } else {
-                setSvgSize(24);
+                setSvgSize(screenWidth * 0.05);
             }
         };
         updateSvgSize();
@@ -35,56 +29,19 @@ const Technology = () => {
         };
     }, []);
 
+    const svgAttributeStyle = `width: ${svgSize}px; height: ${svgSize}px;`;
+
     return (
         <TechnologyWrapper>
             <Title title={title} />
             <Spacer style={{ marginTop: "5vw" }} />
-            {technologies.map((tech) => (
-                <div key={tech.title}>
-                    <Spacer />
-                    <IntroMotion start="right" end="bottom">
-                        <SubTitle>{tech.title}</SubTitle>
-                    </IntroMotion>
-                    <Spacer />
-                    <TechnologyContainer>
-                        {tech.data.map((tch) => (
-                            <BounceMotion key={tch.title}>
-                                <IntroMotion start="right" end="bottom">
-                                    <TechIconWrapper>
-                                        <ReactSVG
-                                            src={tch.url}
-                                            beforeInjection={(svg) => {
-                                                svg.classList.add("svg-class-name");
-                                                svg.setAttribute("style", `width: ${svgSize}px; height: ${svgSize}px;`);
-                                            }}
-                                        />
-                                    </TechIconWrapper>
-                                </IntroMotion>
-                            </BounceMotion>
-                        ))}
-                    </TechnologyContainer>
-                </div>
-            ))}
+            <Description technologies={technologies} svgAttributeStyle={svgAttributeStyle} />
         </TechnologyWrapper>
     );
 };
 
 const TechnologyWrapper = styled.div`
-    text-align: center;
-`;
-
-const TechnologyContainer = styled.div`
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-`;
-
-const TechIconWrapper = styled.div`
-    background: white;
-    padding: 0.5rem;
-    border: 3px solid rgb(203, 213, 225);
-    border-radius: 10px;
+    // text-align: center;
 `;
 
 export default Technology;
