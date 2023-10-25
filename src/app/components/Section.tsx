@@ -11,25 +11,19 @@ export type SectionProps = {
 const Section = ({ sections }: { sections: SectionProps[] }) =>
     sections.map((section, index) => (
         <SectionWrapper $notfull={section.notfull} key={index}>
-            <ChildrenWrapper
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                $notfull={section.notfull}
-                $path={section.path}
-            >
+            <ChildrenWrapper $notfull={section.notfull} $path={section.path}>
                 {section.component}
             </ChildrenWrapper>
         </SectionWrapper>
     ));
 
-const ChildrenWrapper = styled(motion.div)<{ $notfull: string; $path: string }>`
+const ChildrenWrapper = styled.div<{ $notfull: string; $path: string }>`
     padding: 0rem;
     border-radius: 10px;
     width: 90%;
     max-width: 1180px;
     margin: 0 auto;
-    margin-top: 10rem;
+    margin-top: 0;
 
     @media screen and (min-width: 768px) {
         padding: 2.5rem;

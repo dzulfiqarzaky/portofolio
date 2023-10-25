@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ANIMATION_DIRECTION } from "@/shared/constants/common";
 
@@ -51,7 +51,7 @@ const IntroMotion: React.FC<IntroMotionProps> = ({
         });
     };
 
-    React.useEffect(() => {
+    useEffect(() => {
         const observer = new IntersectionObserver(handleIntersection, intersectionObserverOptions);
 
         if (ref.current) {
@@ -63,7 +63,7 @@ const IntroMotion: React.FC<IntroMotionProps> = ({
                 observer.unobserve(ref.current);
             }
         };
-    }, []);
+    }, [ref, controls, intersectionObserverOptions]);
 
     return (
         <motion.div
@@ -72,7 +72,7 @@ const IntroMotion: React.FC<IntroMotionProps> = ({
             animate={controls}
             exit={{ opacity: 0, ...animations[end] }}
         >
-            {children}
+                        {children}       {" "}
         </motion.div>
     );
 };
