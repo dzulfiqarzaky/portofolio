@@ -5,7 +5,7 @@ import { Spacer, StyledDescription } from "@/shared/style";
 
 import { ProjectInterface } from "./CardList";
 import { CardContent } from "./FrontCard";
-import { CardTitle } from "./Card";
+import { CardDescription, CardTitle } from "./Card";
 import { HTML_TAG } from "@/shared/constants/common";
 
 type BackCardProps = { project: ProjectInterface };
@@ -15,7 +15,7 @@ const BackCard = ({ project }: BackCardProps) => {
         <BackCardContent>
             <CardTitle>{project.title}</CardTitle>
             <Spacer />
-            <StyledDescription>{project.description}</StyledDescription>
+            <CardDescription>{project.description}</CardDescription>
             <Spacer />
             <ButtonContainer>
                 {project.link.map((link, linkIndex) => (
@@ -43,7 +43,7 @@ const BackCardContent = styled(CardContent)`
     backface-visibility: hidden;
     background: white;
     text-align: center;
-    color: #434343;
+    color: hsla(220, 90%, 10%, 0.8);
     transform: rotateY(180deg);
     scrollbar-width: none;
 `;

@@ -1,9 +1,9 @@
 import React from "react";
-import { ProjectInterface } from "./CardList";
 import styled from "styled-components";
-import { Spacer, StyledDescription, SubTitle } from "@/shared/style";
+import { ProjectInterface } from "./CardList";
+import { Spacer } from "@/shared/style";
 import { SwipeFooter } from "@/shared/components";
-import { CardTitle } from "./Card";
+import { CardSubTitle, CardTitle } from "./Card";
 
 const FrontCard = ({ project }: { project: ProjectInterface }) => {
     return (
@@ -13,12 +13,12 @@ const FrontCard = ({ project }: { project: ProjectInterface }) => {
             {project.tech.map((tech, techIndex) => (
                 <React.Fragment key={techIndex}>
                     <Spacer />
-                    <SubTitle>{tech.title}</SubTitle>
+                    <CardSubTitle>{tech.title}</CardSubTitle>
                     <Spacer />
                     <TechStackListContainer>
                         {tech.description.split(",").map((techName, index) => (
                             <TechStackBadge key={index}>
-                                <StyledDescription>{techName}</StyledDescription>
+                                <TechStackDescription>{techName}</TechStackDescription>
                             </TechStackBadge>
                         ))}
                     </TechStackListContainer>
@@ -41,22 +41,26 @@ export const CardContent = styled.div`
     overflow: auto;
     background: white;
     border-radius: 10px;
-    color: #434343;
+    color: hsla(220, 90%, 10%, 0.8);
     scrollbar-width: none;
 `;
 
 const TechStackListContainer = styled.div`
     display: flex;
-    gap: 0.3rem;
+    gap: 0.2rem;
     flex-wrap: wrap;
     padding-bottom: 1rem;
 `;
 
 const TechStackBadge = styled.div`
-    background: hsla(220, 90%, 50%, 0.8);
+    background: hsla(220, 90%, 10%, 0.8);
     color: white;
-    padding: 1px 4px;
+    padding: 2px 8px;
     border-radius: 4px;
 `;
 
+const TechStackDescription = styled.div`
+    font-size: 0.75rem;
+    font-weight: 600;
+`;
 export default FrontCard;

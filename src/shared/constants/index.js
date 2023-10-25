@@ -48,8 +48,7 @@ const experiences = [
         title: "PT. Kaldu Sari Nabati",
         // date: "(SEPT 2022 – Now)",
         link: "https://edot.id/",
-        description:
-            "Front End Developer on E-DOT Distribution System Website.",
+        description: "Front End Developer on E-DOT Distribution System Website.",
         // stack: [
         //     {
         //         title: "Antd",
@@ -408,7 +407,7 @@ const projects = [
         ],
         link: [
             {
-                title: "GoMank",
+                title: "Repo",
                 url: "https://github.com/GoMank/goMank",
             },
         ],
@@ -437,11 +436,11 @@ const projects = [
             //     url: "https://webnovel-project.firebaseapp.com/"
             // },
             {
-                title: "Webnovel-Client-Github",
+                title: "Client Repo",
                 url: "https://github.com/dzulfiqarzaky/p2-iproject-client/",
             },
             {
-                title: "Webnovel-Server-Github",
+                title: "Server Repo",
                 url: "https://github.com/dzulfiqarzaky/p2-iproject-server",
             },
         ],
@@ -454,13 +453,11 @@ const projects = [
         tech: [
             {
                 title: "Frontend Stack",
-                description:
-                    "React, React Native, Redux, Tailwind, Bootstrap, Axios, fetch",
+                description: "React, React Native, Redux, Tailwind, Bootstrap, Axios, fetch",
             },
             {
                 title: "Backend Stack",
-                description:
-                    "MongoDB, NodeJS, BcryptJS, dotENV, JWT, ExpressJs, SequelizeJs, PostgreSQL, ExpressJS",
+                description: "MongoDB, NodeJS, BcryptJS, dotENV, JWT, ExpressJs, SequelizeJs, PostgreSQL, ExpressJS",
             },
             {
                 title: "Other tech",
@@ -468,16 +465,16 @@ const projects = [
             },
         ],
         link: [
+            // {
+            //     title: "Prada Clone",
+            //     url: "https://client-user-prada-clone.firebaseapp.com/",
+            // },
             {
-                title: "PradaClone-project",
-                url: "https://client-user-prada-clone.firebaseapp.com/",
-            },
-            {
-                title: "PradaClone-Mobile-Github",
+                title: "Apk Repo",
                 url: "https://github.com/dzulfiqarzaky/p3-challenge-2",
             },
             {
-                title: "PradaClone-Website-Github",
+                title: "Website Repo",
                 url: "https://github.com/dzulfiqarzaky/p3-challenge-1",
             },
         ],
@@ -493,8 +490,7 @@ const projects = [
             },
             {
                 title: "Backend Stack",
-                description:
-                    "NodeJS, BcryptJS, dotENV, JWT, SequelizeJs, PostgreSQL, ExpressJS",
+                description: "NodeJS, BcryptJS, dotENV, JWT, SequelizeJs, PostgreSQL, ExpressJS",
             },
             {
                 title: "Other tech",
@@ -503,7 +499,7 @@ const projects = [
         ],
         link: [
             {
-                title: "ChatSnap-github",
+                title: "Repo",
                 url: "https://github.com/dzulfiqarzaky/chatSnap",
             },
         ],
@@ -515,13 +511,11 @@ const projects = [
         tech: [
             {
                 title: "Frontend Stack",
-                description:
-                    "Vue JS, VueX, Tailwind, Bootstrap, Axios, CSS, JQuery fetch",
+                description: "Vue JS, VueX, Tailwind, Bootstrap, Axios, CSS, JQuery fetch",
             },
             {
                 title: "Backend Stack",
-                description:
-                    "NodeJS, BcryptJS, dotENV, JWT, Sequelize, PostgreSQL, ExpressJS",
+                description: "NodeJS, BcryptJS, dotENV, JWT, Sequelize, PostgreSQL, ExpressJS",
             },
             {
                 title: "Other tech",
@@ -534,19 +528,18 @@ const projects = [
             //     url: "https://job-hunt-customer.firebaseapp.com/"
             // },
             {
-                title: "JobHunt-Client-Github",
+                title: "Client Repo",
                 url: "https://job-hunt-client-uppsala-fox.firebaseapp.com/",
             },
             {
-                title: "JobHunt-Server-Github",
+                title: "Server Repo",
                 url: "https://job-hunt-customer.firebaseapp.com",
             },
         ],
     },
     {
         title: "Blogr - A Modern Publishing Page",
-        description:
-            "It's a simple responsive landing page, built for practicing CSS",
+        description: "It's a simple responsive landing page, built for practicing CSS",
         feat: "Good view across all device",
         tech: [
             {
@@ -556,11 +549,11 @@ const projects = [
         ],
         link: [
             {
-                title: "Blogr Site",
+                title: "Website",
                 url: "https://pasarnow-frontend-test.web.app/",
             },
             {
-                title: "Blogr Github",
+                title: "Repo",
                 url: "https://github.com/dzulfiqarzaky/pasarnow-front-end-test",
             },
         ],

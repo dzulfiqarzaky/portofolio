@@ -45,7 +45,7 @@ const FooterWrapper = styled(motion.div)`
     border-radius: 0 0 10px 10px;
     font-weight: 600;
     color: white;
-    background: hsla(310, 100%, 56%, 0.8);
+    background: hsla(220, 90%, 10%, 0.8);
     padding: 0.5rem 1rem;
     text-align: center;
     display: flex;

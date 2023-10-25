@@ -167,13 +167,13 @@ const YonduQuill = () => {
         function loop() {
             if (!ctx.running) return;
             const gradient = ctx.createLinearGradient(0, 0, ctx.canvas.width, ctx.canvas.height);
-            gradient.addColorStop(0, "#7f5a83"); // First color in the gradient
-            gradient.addColorStop(0.74, "#0d324d");
+            gradient.addColorStop(0, "#fff"); // First color in the gradient background
+            gradient.addColorStop(0.74, "#fff");
             ctx.globalCompositeOperation = "source-over";
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-            ctx.globalCompositeOperation = "lighter";
-            ctx.strokeStyle = "hsla(" + Math.round(hue.update()) + ",90%,50%,0.25)";
+            // ctx.globalCompositeOperation = "lighter"; // if you want the stroke to be shown in white background, comment this
+            ctx.strokeStyle = "hsla(" + Math.round(hue.update()) + ",90%,50%,0.9)";
             ctx.lineWidth = 1;
             colorHoverTree = "hsla(" + Math.round(hue.update()) + ",90%,60%,0.90)";
             if (ctx.frame % 60 == 0) {

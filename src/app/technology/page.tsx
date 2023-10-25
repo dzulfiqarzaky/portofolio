@@ -15,11 +15,11 @@ const Technology = () => {
         const updateSvgSize = () => {
             const screenWidth = window.innerWidth;
             if (screenWidth >= SCREEN_SIZE.DESKTOP) {
-                setSvgSize(screenWidth * 0.03);
+                setSvgSize(screenWidth * 0.02);
             } else if (screenWidth >= SCREEN_SIZE.MOBILE) {
-                setSvgSize(screenWidth * 0.04);
+                setSvgSize(screenWidth * 0.03);
             } else {
-                setSvgSize(screenWidth * 0.05);
+                setSvgSize(screenWidth * 0.04);
             }
         };
         updateSvgSize();

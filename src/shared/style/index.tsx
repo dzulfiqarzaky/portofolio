@@ -6,15 +6,15 @@ export const Spacer = styled.div`
 `;
 
 export const TitleStyled = styled.h1`
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
 
     @media screen and (min-width: 768px) {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     @media screen and (min-width: 1200px) {
-        font-size: 3.5rem;
+        font-size: 4rem;
     }
 `;
 
@@ -36,7 +36,7 @@ export const StyledDescription = styled.p`
     font-weight: 400;
     text-align: justify;
     text-justify: inter-word;
-    line-height: 1.5;
+    line-height: 1.75;
 
     @media screen and (min-width: 768px) {
         font-size: 1rem;

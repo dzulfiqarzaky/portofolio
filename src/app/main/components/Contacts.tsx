@@ -52,9 +52,8 @@ const ContactsContainerStyled = styled.div`
 
 const ContactsLinkStyled = styled.a<StyledLinkProps>`
     text-decoration: none;
-    color: hsla(308, 90%, 60%, 0.9);
+    color: hsla(220, 90%, 10%, 0.8);
     font-weight: bold;
-    /* padding: .13rem; */
 
     @media screen and (min-width: 768px) {
         font-size: 1.2rem;
@@ -71,14 +70,13 @@ const ContactsLinkStyled = styled.a<StyledLinkProps>`
         `
     &:hover {
       padding: 2px;
-      background-color: hsla(308,90%,60%,0.90);
-      color: #ffff;
+      color: hsla(220, 90%, 10%, 0.8);
       position: relative;
     }
 
     &:not(:hover) {
         transition: background-color 3s , color 3s, position 3s;
-        background-color: initial;
+        // background-color: initial;
       }
     
   `}

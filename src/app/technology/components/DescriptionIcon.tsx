@@ -42,7 +42,6 @@ const TechnologyContainer = styled.div`
     gap: 1rem;
     flex-wrap: wrap;
     padding-bottom: 1rem;
-    // justify-content: center;
 `;
 
 const TechIconWrapper = styled.div`

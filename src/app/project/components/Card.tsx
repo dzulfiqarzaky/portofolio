@@ -41,9 +41,7 @@ const Card = ({ project, index }: { project: ProjectInterface; index: number }) 
 
 const CardWrapper = styled.div`
     position: relative;
-    background: white;
     user-select: none;
-    background: none;
     top: 0;
     left: 0;
     width: 100%;
@@ -52,7 +50,6 @@ const CardWrapper = styled.div`
     height: 400px;
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
-    background: #ffc728;
     touch-action: pan-x;
     pointer-events: auto;
     border: 3px solid rgb(203 213 225);
@@ -69,7 +66,19 @@ const CardWrapper = styled.div`
 `;
 
 export const CardTitle = styled.h1`
-    font-size: 22px;
+    font-weight: 700;
+    font-size: 1.5rem;
+`;
+export const CardSubTitle = styled.h3`
+    font-weight: 600;
+    font-size: 1rem;
 `;
 
+export const CardDescription = styled.p`
+    font-weight: 400;
+    font-size: 1rem;
+    text-justify: inter-word;
+    padding: 0 1rem;
+    line-height: 1.25;
+`;
 export default Card;

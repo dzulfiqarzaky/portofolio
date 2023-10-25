@@ -28,8 +28,7 @@ const ChildrenWrapper = styled(motion.div)<{ section: SectionProps }>`
     width: 90%;
     max-width: 1180px;
     margin: 0 auto;
-    background: hsla(220, 90%, 50%, 0.2);
-    background: url("../public/5162027.jpg");
+
     margin-top: ${(p) => (p.section.notFull ? "10rem" : 0)};
 
     @media screen and (min-width: 768px) {
@@ -46,7 +45,6 @@ const ChildrenWrapper = styled(motion.div)<{ section: SectionProps }>`
 const SectionWrapper = styled.div<{ section: SectionProps }>`
     width: 100vw;
     height: ${(p) => (p.section.notFull ? "auto" : "100vh")};
-    background: hsla(200, 90%, 50%, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;

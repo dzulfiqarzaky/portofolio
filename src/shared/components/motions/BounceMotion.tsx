@@ -43,7 +43,7 @@ const BounceMotion = ({ children }: any) => {
 
 const StyledSpan = styled.span`
     z-index: -10;
-    color: hsla(310, 100%, 56%, 0.9);
+    color: hsla(220, 90%, 10%, 0.2);
     position: fixed;
     left: -2px;
     top: 1px;
