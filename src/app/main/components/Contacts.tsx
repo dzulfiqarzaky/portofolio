@@ -13,7 +13,7 @@ export interface ContactsInterface {
 }
 
 interface StyledLinkProps {
-    glow?: boolean;
+    glow?: string;
 }
 
 const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
@@ -28,7 +28,7 @@ const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
                             target={HTML_TAG.TARGET}
                             rel={HTML_TAG.REL}
                             key={index}
-                            glow
+                            glow={"true"}
                         >
                             <BounceMotion>{contact.title}</BounceMotion>
                         </ContactsLinkStyled>
@@ -66,7 +66,7 @@ const ContactsLinkStyled = styled.a<StyledLinkProps>`
     }
 
     ${(props) =>
-        props.glow &&
+        props?.glow === "true" &&
         `
     &:hover {
       padding: 2px;

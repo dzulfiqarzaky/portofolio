@@ -47,7 +47,7 @@ export const StyledDescription = styled.p`
     }
 `;
 
-export const StyledLink = styled(Link)<{ glow?: boolean }>`
+export const StyledLink = styled(Link)`
     font-size: 0.75rem;
     text-decoration: none;
     font-weight: bold;

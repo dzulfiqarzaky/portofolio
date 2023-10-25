@@ -12,27 +12,27 @@ import Section from "./components/Section";
 const sections = [
     {
         component: <Main />,
-        notFull: false,
+        notfull: "false",
         path: "/",
     },
     {
         component: <Education />,
-        notFull: false,
+        notfull: "false",
         path: "/education",
     },
     {
         component: <Experiences />,
-        notFull: false,
+        notfull: "false",
         path: "/experiences",
     },
     {
         component: <Technology />,
-        notFull: true,
+        notfull: "true",
         path: "/technology",
     },
     {
         component: <Projects />,
-        notFull: true,
+        notfull: "true",
         path: "/projects",
     },
 ];

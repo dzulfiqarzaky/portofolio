@@ -4,47 +4,47 @@ import { motion } from "framer-motion";
 
 export type SectionProps = {
     component: JSX.Element;
-    notFull: boolean;
+    notfull: string;
     path: string;
 };
 
 const Section = ({ sections }: { sections: SectionProps[] }) =>
     sections.map((section, index) => (
-        <SectionWrapper section={section} key={index}>
+        <SectionWrapper $notfull={section.notfull} key={index}>
             <ChildrenWrapper
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                section={section}
+                $notfull={section.notfull}
+                $path={section.path}
             >
                 {section.component}
             </ChildrenWrapper>
         </SectionWrapper>
     ));
 
-const ChildrenWrapper = styled(motion.div)<{ section: SectionProps }>`
+const ChildrenWrapper = styled(motion.div)<{ $notfull: string; $path: string }>`
     padding: 0rem;
     border-radius: 10px;
     width: 90%;
     max-width: 1180px;
     margin: 0 auto;
-
-    margin-top: ${(p) => (p.section.notFull ? "10rem" : 0)};
+    margin-top: 10rem;
 
     @media screen and (min-width: 768px) {
         padding: 2.5rem;
-        width: ${(p) => (p.section.path === "/projects" ? "100%" : "90%")};
+        width: ${(p) => (p?.$path === "/projects" ? "100%" : "90%")};
     }
 
     @media screen and (min-width: 1200px) {
         padding: 5rem;
-        width: ${(p) => (p.section.path === "/projects" ? "100%" : "90%")};
+        width: ${(p) => (p?.$path === "/projects" ? "100%" : "90%")};
     }
 `;
 
-const SectionWrapper = styled.div<{ section: SectionProps }>`
+const SectionWrapper = styled.div<{ $notfull: string }>`
     width: 100vw;
-    height: ${(p) => (p.section.notFull ? "auto" : "100vh")};
+    height: ${(p) => (p?.$notfull === "true" ? "auto" : "100vh")};
     display: flex;
     align-items: center;
     justify-content: center;

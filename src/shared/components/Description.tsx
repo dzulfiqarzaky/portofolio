@@ -29,7 +29,7 @@ const Description = ({ descriptions }: Props) => {
                         {typeof description === "string" ? (
                             <StyledDescription>{description}</StyledDescription>
                         ) : (
-                            <StyledLink href={description.link} target="_blank" rel="noopener noreferrer" glow>
+                            <StyledLink href={description.link} target="_blank" rel="noopener noreferrer">
                                 <ProgressMotion>
                                     <SubTitle>{description.title}</SubTitle>
                                 </ProgressMotion>

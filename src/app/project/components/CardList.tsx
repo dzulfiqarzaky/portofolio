@@ -27,8 +27,8 @@ const CardList = ({ projects }: { projects: ProjectInterface[] }) => {
     return (
         <CardListContainer>
             {projects.map((project, index) => (
-                <IntroMotion start="right" end="bottom">
-                    <Card project={project} key={index} index={index} />
+                <IntroMotion start="right" end="bottom" key={index}>
+                    <Card project={project} index={index} />
                 </IntroMotion>
             ))}
         </CardListContainer>
