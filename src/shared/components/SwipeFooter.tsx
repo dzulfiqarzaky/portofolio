@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 import { COMMON } from "@/shared/constants/common";
 
-const SwipeFooter = () => {
+const SwipeFooter = memo(() => {
     return (
         <FooterWrapper>
             <motion.p
@@ -35,7 +35,7 @@ const SwipeFooter = () => {
             </motion.p>
         </FooterWrapper>
     );
-};
+});
 
 const FooterWrapper = styled(motion.div)`
     position: fixed;

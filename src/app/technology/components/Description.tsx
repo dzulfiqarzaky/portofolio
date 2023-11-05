@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Spacer, SubTitle } from "@/shared/style";
 import { IntroMotion } from "@/shared/components/motions";
 import { ANIMATION_DIRECTION } from "@/shared/constants/common";
@@ -9,7 +9,7 @@ interface DescriptionProps {
     technologies: TechnologiesInterface[];
     svgAttributeStyle: string;
 }
-const Description = ({ technologies, svgAttributeStyle }: DescriptionProps) => {
+const Description = memo(({ technologies, svgAttributeStyle }: DescriptionProps) => {
     return technologies.map((technology) => (
         <div key={technology.title}>
             <Spacer />
@@ -20,6 +20,6 @@ const Description = ({ technologies, svgAttributeStyle }: DescriptionProps) => {
             <DescriptionIcon technology={technology} svgAttributeStyle={svgAttributeStyle} />
         </div>
     ));
-};
+});
 
 export default Description;

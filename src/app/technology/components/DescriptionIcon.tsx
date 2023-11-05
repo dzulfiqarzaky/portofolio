@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { ReactSVG } from "react-svg";
 
@@ -15,7 +15,7 @@ type DescriptionIconProps = {
     svgAttributeStyle: string;
 };
 
-const DescriptionIcon = ({ technology, svgAttributeStyle }: DescriptionIconProps) => {
+const DescriptionIcon = memo(({ technology, svgAttributeStyle }: DescriptionIconProps) => {
     return (
         <TechnologyContainer>
             {technology.data.map((icon) => (
@@ -35,7 +35,7 @@ const DescriptionIcon = ({ technology, svgAttributeStyle }: DescriptionIconProps
             ))}
         </TechnologyContainer>
     );
-};
+});
 
 const TechnologyContainer = styled.div`
     display: flex;
