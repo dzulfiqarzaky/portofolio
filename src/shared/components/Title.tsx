@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { IntroMotion, BounceMotion } from "./motions";
 
@@ -9,7 +9,7 @@ type TitleComponentProps = {
     title: string[];
 };
 
-const Title = ({ title }: TitleComponentProps) => {
+const Title = memo(({ title }: TitleComponentProps) => {
     return (
         <IntroMotion start={ANIMATION_DIRECTION.RIGHT} end={ANIMATION_DIRECTION.BOTTOM}>
             <TitleStyled>
@@ -19,6 +19,6 @@ const Title = ({ title }: TitleComponentProps) => {
             </TitleStyled>
         </IntroMotion>
     );
-};
+});
 
 export default Title;

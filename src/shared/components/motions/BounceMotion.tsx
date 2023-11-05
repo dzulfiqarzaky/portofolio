@@ -1,20 +1,20 @@
-import React, { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import styled from "styled-components";
 import { motion, useAnimationControls } from "framer-motion";
 
 import { ANIMATION_TEXT, COMMON, HTML_TAG } from "@/shared/constants/common";
 
-const BounceMotion = ({ children }: any) => {
+const BounceMotion = memo(({ children }: any) => {
     const control = useAnimationControls();
     const [isHovered, setIsHovered] = useState(false);
 
-    const elasticText = () => {
+    const elasticText = useCallback(() => {
         control.start({
             transform: ANIMATION_TEXT.TRANSFORM,
             transition: ANIMATION_TEXT.DURATION,
         });
         setIsHovered(true);
-    };
+    }, [control]);
 
     const isChildrenString = typeof children === COMMON.STRING;
 
@@ -39,7 +39,7 @@ const BounceMotion = ({ children }: any) => {
             )}
         </motion.span>
     );
-};
+});
 
 const StyledSpan = styled.span`
     z-index: -10;

@@ -1,6 +1,8 @@
+import { memo } from "react";
 import { styled } from "styled-components";
 import { IntroMotion, BounceMotion } from "@/shared/components/motions";
 import { ANIMATION_DIRECTION, HTML_TAG } from "@/shared/constants/common";
+import { Empty } from "@/shared/components/";
 
 export interface CustomLink {
     title: string;
@@ -16,11 +18,11 @@ interface StyledLinkProps {
     $glow?: string;
 }
 
-const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
+const Contacts = memo(({ contacts }: { contacts: ContactsInterface }) => {
     return (
         <IntroMotion start={ANIMATION_DIRECTION.RIGHT} end={ANIMATION_DIRECTION.BOTTOM}>
             <ContactsWrapperStyled>
-                <div></div>
+                <Empty />
                 <ContactsContainerStyled>
                     {contacts.link.map((contact, index) => (
                         <ContactsLinkStyled
@@ -37,7 +39,7 @@ const Contacts = ({ contacts }: { contacts: ContactsInterface }) => {
             </ContactsWrapperStyled>
         </IntroMotion>
     );
-};
+});
 
 const ContactsWrapperStyled = styled.div`
     display: flex;
