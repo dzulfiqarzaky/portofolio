@@ -17,6 +17,7 @@
     "@types/node": "20.4.0",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
+    "babel-plugin-styled-components": "^2.1.4",
     "framer-motion": "^10.12.18",
     "next": "13.4.8",
     "react": "18.2.0",
@@ -27,7 +28,7 @@
     "react-tilt": "^1.0.2",
     "react-use-scroll-snap": "^0.0.4",
     "react-vertical-timeline-component": "^3.6.0",
-    "styled-components": "^6.0.2",
+    "styled-components": "^6.1.0",
     "typescript": "5.1.6"
   },
   "devDependencies": {
