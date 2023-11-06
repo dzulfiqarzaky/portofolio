@@ -6,9 +6,13 @@ import { Title } from "@/shared/components";
 import { technologies } from "@/shared/constants";
 import { SCREEN_SIZE, TITLE } from "@/shared/constants/common";
 import Description from "./components/Description";
+import useInitializeTitleDescription from "@/shared/hooks/useInitializeTitleDescription";
 
 const Technology = memo(() => {
-    const title = TITLE.TECHNOLOGY.split("");
+    const { title, descriptions } = useInitializeTitleDescription<typeof technologies>({
+        titleProps: TITLE.TECHNOLOGY,
+        descriptionProps: technologies,
+    });
     const [svgSize, setSvgSize] = useState(52);
 
     useEffect(() => {
@@ -35,7 +39,7 @@ const Technology = memo(() => {
         <TechnologyWrapper>
             <Title title={title} />
             <Spacer style={{ marginTop: "5vw" }} />
-            <Description technologies={technologies} svgAttributeStyle={svgAttributeStyle} />
+            <Description technologies={descriptions ?? []} svgAttributeStyle={svgAttributeStyle} />
         </TechnologyWrapper>
     );
 });

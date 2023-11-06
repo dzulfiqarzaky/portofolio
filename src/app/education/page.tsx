@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import styled from "styled-components";
+import useInitializeTitleDescription from "@/shared/hooks/useInitializeTitleDescription";
 import { Spacer } from "@/shared/style";
 import { education } from "@/shared/constants";
 import { Title, Description } from "@/shared/components";
@@ -14,13 +15,16 @@ export interface EducationInterface {
 }
 
 const Education = () => {
-    const title = TITLE.EDUCATION.split("");
+    const { title, descriptions } = useInitializeTitleDescription<EducationInterface[]>({
+        titleProps: TITLE.EDUCATION,
+        descriptionProps: education,
+    });
 
     return (
         <EducationContainer>
             <Title title={title} />
             <Spacer />
-            <Description descriptions={education} />
+            <Description descriptions={descriptions ?? []} />
         </EducationContainer>
     );
 };
