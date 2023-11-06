@@ -16,14 +16,14 @@ const sections = [
         path: "/",
     },
     {
-        component: <Education />,
-        notfull: "false",
-        path: "/education",
-    },
-    {
         component: <Experiences />,
         notfull: "false",
         path: "/experiences",
+    },
+    {
+        component: <Education />,
+        notfull: "false",
+        path: "/education",
     },
     {
         component: <Technology />,

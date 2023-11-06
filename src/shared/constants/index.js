@@ -39,16 +39,24 @@ const education = [
         // date: "(2015-2019)",
         link: "https://upg.ac.id/v1/",
         subHead: "S1 Management – GPA 3,15",
-        description: `Even degrees cannot change my love to code.`,
+        description: `A journey of academic exploration and practical business management, where the passion for coding was discovered and nurtured. Despite the focus on business studies, the allure of programming languages became a personal fascination. This period served as a testament to the adaptability and eagerness to learn beyond the conventional curriculum, ultimately paving the way towards a career in coding. The degree might be in business, but the heart was, and always will be, with the line of code.`,
     },
 ];
 
 const experiences = [
     {
+        title: "Raiz Invest",
+        // date: "(SEPT 2022 – Now)",
+        link: "https://raizinvest.com.au/",
+        description:
+            "As a Senior Front End Developer at Raiz Invest, I enhanced user experience by implementing new features and maintaining the web application. I contributed to the design of the Raiz web extension for Chrome and Mozilla, migrated legacy code, and implemented a new translation technology across the application. I also reviewed peer code to uphold quality standards.",
+    },
+    {
         title: "PT. Kaldu Sari Nabati",
         // date: "(SEPT 2022 – Now)",
         link: "https://edot.id/",
-        description: "Front End Developer on E-DOT Distribution System Website.",
+        description:
+            "As a Mid-Senior Front End Developer for the E-DOT Distribution System Website, I built new components and complex dashboards, consistently met deadlines, and worked effectively in a fast-paced production environment.",
         // stack: [
         //     {
         //         title: "Antd",
@@ -85,67 +93,10 @@ const experiences = [
         title: "Bank Mandiri",
         // date: "(April 2022 – AUG 2022)",
         link: "https://bankmandiri.co.id/kopra-by-mandiri",
-        description: "Front End Developer on Kopra & Laju App of Bank Mandiri.",
-        // stack: [
-
-        //     {
-        //         title: "Antd",
-        //         url: "/icons/antdesign-svgrepo-com(1).svg"
-        //     },
-        //     {
-        //         title: "NEXTJS",
-        //         url: "/icons/nextjs-fill-svgrepo-com.svg"
-        //     },
-        //     {
-        //         title: "Styled",
-        //         url: "/icons/styled-components-svgrepo-com.svg"
-        //     },
-        //     {
-        //         title: "Mapbox",
-        //         url: "/icons/mapbox-svgrepo-com.svg"
-        //     },
-        //     {
-        //         title: "pdftohtml",
-        //         url: "/icons/pdf-file-svgrepo-com.svg"
-        //     },
-        //     {
-        //         title: "puppeteer",
-        //         url: "/icons/puppeteer-svgrepo-com.svg"
-        //     },
-        //     {
-        //         title: "Typescript",
-        //         url: "/icons/typescript-logo-svgrepo-com.svg"
-        //     },
-        //     {
-        //         title: "Jira",
-        //         url: "/icons/jira-1.svg"
-        //     },
-        //     {
-        //         title: "Formik",
-        //         url: "/icons/formik.svg"
-        //     },
-        //     {
-        //         title: "Gitea",
-        //         url: "/icons/gitea.svg"
-        //     },
-        //     {
-        //         title: "React query",
-        //         url: "/icons/react-query-seeklogo.com.svg"
-        //     },
-        //     {
-        //         title: "React story book",
-        //         url: "/icons/storybook-1.svg"
-        //     },
-
-        // ]
-    },
-    {
-        title: "Consistech Solutions",
-        // date: "(Sept 2019 – Nov 2021)",
-        link: "https://consistechsolution.com/web/",
         description:
-            "Front End Developer (REACT) for a variety of products including Enterprise Resource Planning (ERP), Hospital Information System (HIS), and Payroll systems.",
+            "As a Front End Developer for Bank Mandiri’s Kopra & Laju App, I developed optimized web interfaces and collaborated with the back-end team for application consistency. I integrated the Google Maps API and implemented React Chart for enhanced data visualization.",
         // stack: [
+
         //     {
         //         title: "Antd",
         //         url: "/icons/antdesign-svgrepo-com(1).svg"
@@ -197,6 +148,64 @@ const experiences = [
 
         // ]
     },
+    // {
+    //     title: "Consistech Solutions",
+    //     // date: "(Sept 2019 – Nov 2021)",
+    //     link: "https://consistechsolution.com/web/",
+    //     description:
+    //         "As a Fullstack Developer, I worked on products like ERP, HIS, and Payroll systems. I built a client-side framework using React JS and developed scalable server-side solutions with Node.js.",
+    //     // stack: [
+    //     //     {
+    //     //         title: "Antd",
+    //     //         url: "/icons/antdesign-svgrepo-com(1).svg"
+    //     //     },
+    //     //     {
+    //     //         title: "NEXTJS",
+    //     //         url: "/icons/nextjs-fill-svgrepo-com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "Styled",
+    //     //         url: "/icons/styled-components-svgrepo-com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "Mapbox",
+    //     //         url: "/icons/mapbox-svgrepo-com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "pdftohtml",
+    //     //         url: "/icons/pdf-file-svgrepo-com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "puppeteer",
+    //     //         url: "/icons/puppeteer-svgrepo-com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "Typescript",
+    //     //         url: "/icons/typescript-logo-svgrepo-com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "Jira",
+    //     //         url: "/icons/jira-1.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "Formik",
+    //     //         url: "/icons/formik.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "Gitea",
+    //     //         url: "/icons/gitea.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "React query",
+    //     //         url: "/icons/react-query-seeklogo.com.svg"
+    //     //     },
+    //     //     {
+    //     //         title: "React story book",
+    //     //         url: "/icons/storybook-1.svg"
+    //     //     },
+
+    //     // ]
+    // },
 ];
 
 const technologies = [

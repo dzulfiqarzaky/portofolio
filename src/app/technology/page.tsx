@@ -19,11 +19,11 @@ const Technology = memo(() => {
         const updateSvgSize = () => {
             const screenWidth = window.innerWidth;
             if (screenWidth >= SCREEN_SIZE.DESKTOP) {
-                setSvgSize(screenWidth * 0.02);
+                setSvgSize(48);
             } else if (screenWidth >= SCREEN_SIZE.MOBILE) {
-                setSvgSize(screenWidth * 0.03);
+                setSvgSize(36);
             } else {
-                setSvgSize(screenWidth * 0.04);
+                setSvgSize(18);
             }
         };
         updateSvgSize();
@@ -40,7 +40,7 @@ const Technology = memo(() => {
     return (
         <TechnologyWrapper>
             <Title title={title} />
-            <Spacer style={{ marginTop: "5vw" }} />
+            <Spacer />
             <Description technologies={descriptions} svgAttributeStyle={svgAttributeStyle} />
         </TechnologyWrapper>
     );

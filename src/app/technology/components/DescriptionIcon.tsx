@@ -47,7 +47,7 @@ const TechnologyContainer = styled.div`
 
 const TechIconWrapper = styled.div`
     background: white;
-    padding: 0.5rem;
+    padding: 0.875rem;
     border: 3px solid rgb(203, 213, 225);
     border-radius: 10px;
 `;
