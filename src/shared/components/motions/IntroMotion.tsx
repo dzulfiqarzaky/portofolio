@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect, useCallback, memo } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ANIMATION_DIRECTION } from "@/shared/constants/common";

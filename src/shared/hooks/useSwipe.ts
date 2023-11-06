@@ -1,9 +1,8 @@
+"use client";
 import { useRef, useState } from "react";
 
 const useSwipe = () => {
-    const [swipedIndex, setSwipedIndex] = useState<
-        { index: number; swiped: boolean }[]
-    >([]);
+    const [swipedIndex, setSwipedIndex] = useState<{ index: number; swiped: boolean }[]>([]);
     const [choosenIndex, setChoosenIndex] = useState<number | null>(null);
     const touchStartX = useRef<number | null>(null);
     const touchMoveX = useRef<number | null>(null);
@@ -13,13 +12,10 @@ const useSwipe = () => {
             setSwipedIndex([{ index, swiped: true }]);
         } else {
             setSwipedIndex((prev) => {
-                const found = prev.findIndex(
-                    (swiped) => swiped.index === index
-                );
+                const found = prev.findIndex((swiped) => swiped.index === index);
                 if (found !== -1) {
                     const updatedSwipedIndex = [...prev];
-                    updatedSwipedIndex[found].swiped =
-                        !updatedSwipedIndex[found].swiped;
+                    updatedSwipedIndex[found].swiped = !updatedSwipedIndex[found].swiped;
                     return updatedSwipedIndex;
                 } else {
                     return [...prev, { index, swiped: true }];
@@ -28,34 +24,22 @@ const useSwipe = () => {
         }
     };
 
-    const handleTouchStart = (
-        index: number,
-        event: React.TouchEvent<HTMLDivElement>
-    ) => {
+    const handleTouchStart = (index: number, event: React.TouchEvent<HTMLDivElement>) => {
         touchStartX.current = event.touches[0].clientX;
         setChoosenIndex(index);
     };
 
-    const handleTouchMove = (
-        index: number,
-        event: React.TouchEvent<HTMLDivElement>
-    ) => {
+    const handleTouchMove = (index: number, event: React.TouchEvent<HTMLDivElement>) => {
         if (!touchStartX.current) return;
         touchMoveX.current = event.touches[0].clientX;
     };
 
-    const handleMouseDown = (
-        index: number,
-        event: React.MouseEvent<HTMLDivElement>
-    ) => {
+    const handleMouseDown = (index: number, event: React.MouseEvent<HTMLDivElement>) => {
         touchStartX.current = event.clientX;
         setChoosenIndex(index);
     };
 
-    const handleMouseMove = (
-        index: number,
-        event: React.MouseEvent<HTMLDivElement>
-    ) => {
+    const handleMouseMove = (index: number, event: React.MouseEvent<HTMLDivElement>) => {
         if (!touchStartX.current) return;
         touchMoveX.current = event.clientX;
     };
@@ -69,10 +53,7 @@ const useSwipe = () => {
 
         const deltaX = touchMoveX.current - touchStartX.current;
 
-        if (
-            (choosenIndex || choosenIndex === 0) &&
-            (deltaX > 50 || deltaX < -50)
-        ) {
+        if ((choosenIndex || choosenIndex === 0) && (deltaX > 50 || deltaX < -50)) {
             swipeFn(choosenIndex);
         }
 

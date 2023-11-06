@@ -1,3 +1,4 @@
+"use client";
 import React, { memo } from "react";
 
 import { IntroMotion, BounceMotion } from "./motions";

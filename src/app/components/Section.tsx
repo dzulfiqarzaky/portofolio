@@ -1,6 +1,6 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 export type SectionProps = {
     component: JSX.Element;

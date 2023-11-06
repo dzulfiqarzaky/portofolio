@@ -1,3 +1,4 @@
+"use client";
 import { CSS_CLASS } from "@/shared/constants/common";
 import { motion } from "framer-motion";
 import { memo } from "react";

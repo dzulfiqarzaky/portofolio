@@ -1,3 +1,4 @@
+"use client";
 import React, { memo } from "react";
 import { Spacer, SubTitle } from "@/shared/style";
 import { IntroMotion } from "@/shared/components/motions";
