@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Spacer } from "@/shared/style";
 import { experiences } from "@/shared/constants";
 import { Title, Description } from "@/shared/components";
@@ -12,13 +12,28 @@ export interface ExperienceInterface {
 }
 
 const Experiences = () => {
-    const title = TITLE.EXPERIENCE.split("");
+    const [title, setTitle] = useState<string[]>([]);
+    const [descriptions, setDescriptions] = useState<ExperienceInterface[]>([]);
+
+    useEffect(() => {
+        const isTitleString = typeof TITLE.EXPERIENCE === "string";
+
+        if (isTitleString) {
+            setTitle(TITLE.EXPERIENCE.split(""));
+        }
+
+        const isDescriptionArray = Array.isArray(experiences);
+
+        if (isDescriptionArray) {
+            setDescriptions(experiences);
+        }
+    }, []);
 
     return (
         <div>
             <Title title={title} />
             <Spacer />
-            <Description descriptions={experiences} />
+            <Description descriptions={descriptions} />
         </div>
     );
 };
