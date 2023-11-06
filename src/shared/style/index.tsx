@@ -19,7 +19,7 @@ export const TitleStyled = styled.h1`
     }
 `;
 
-export const SubTitle = styled.h3`
+export const SubTitle = styled.h2`
     font-size: 1rem;
     font-weight: 600;
 

@@ -70,7 +70,7 @@ export const CardTitle = styled.h1`
     font-weight: 700;
     font-size: 1.5rem;
 `;
-export const CardSubTitle = styled.h3`
+export const CardSubTitle = styled.h2`
     font-weight: 600;
     font-size: 1rem;
 `;
