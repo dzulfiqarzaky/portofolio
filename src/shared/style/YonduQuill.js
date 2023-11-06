@@ -272,7 +272,7 @@ const YonduQuill = () => {
         ctx.frame = 1;
 
         logo = new Image();
-        logo.src = "ht" + "tps://ho" + "vertree.c" + "om/themes/hvtimages/hvtlogo.p" + "ng";
+        // logo.src = "ht" + "tps://ho" + "vertree.c" + "om/themes/hvtimages/hvtlogo.p" + "ng";
 
         hue = new Oscillator({
             phase: Math.random() * Math.TWO_PI,
