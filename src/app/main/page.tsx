@@ -18,13 +18,13 @@ const Main = () => {
         setContactProps(contacts);
     }, []);
 
-    if (!contactProps) return <div></div>;
+    if (!contactProps || !descriptions) return <div></div>;
 
     return (
         <div>
             <Title title={title} />
             <Spacer />
-            <Description descriptions={descriptions ?? []} />
+            <Description descriptions={descriptions} />
             <Spacer />
             <Contacts contacts={contactProps} />
         </div>

@@ -20,11 +20,13 @@ const Education = () => {
         descriptionProps: education,
     });
 
+    if (!descriptions) return <div></div>;
+
     return (
         <EducationContainer>
             <Title title={title} />
             <Spacer />
-            <Description descriptions={descriptions ?? []} />
+            <Description descriptions={descriptions} />
         </EducationContainer>
     );
 };

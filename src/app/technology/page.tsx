@@ -35,11 +35,13 @@ const Technology = memo(() => {
 
     const svgAttributeStyle = `width: ${svgSize}px; height: ${svgSize}px;`;
 
+    if (!descriptions) return <div></div>;
+
     return (
         <TechnologyWrapper>
             <Title title={title} />
             <Spacer style={{ marginTop: "5vw" }} />
-            <Description technologies={descriptions ?? []} svgAttributeStyle={svgAttributeStyle} />
+            <Description technologies={descriptions} svgAttributeStyle={svgAttributeStyle} />
         </TechnologyWrapper>
     );
 });

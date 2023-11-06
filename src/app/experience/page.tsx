@@ -18,11 +18,13 @@ const Experiences = () => {
         descriptionProps: experiences,
     });
 
+    if (!descriptions) return <div></div>;
+
     return (
         <div>
             <Title title={title} />
             <Spacer />
-            <Description descriptions={descriptions ?? []} />
+            <Description descriptions={descriptions} />
         </div>
     );
 };
