@@ -24,7 +24,7 @@ const Main = () => {
         <div>
             <Title title={title} />
             <Spacer />
-            <Description descriptions={descriptions} />
+            <Description descriptions={descriptions} mainPage />
             <Spacer />
             <Contacts contacts={contactProps} />
         </div>
