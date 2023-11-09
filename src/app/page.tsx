@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import YonduQuill from "@/shared/style/YonduQuill";
+import useMediaQuery from "@/shared/hooks/useMediaQuery";
 
 import Main from "./main/page";
 import Education from "./education/page";
@@ -38,9 +39,11 @@ const sections = [
 ];
 
 const Home = () => {
+    const isDesktop = useMediaQuery();
+
     return (
         <div>
-            <YonduQuill />
+            {isDesktop && <YonduQuill />}
             <Section sections={sections} />
         </div>
     );
