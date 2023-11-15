@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback } from "react";
 import YonduQuill from "@/shared/style/YonduQuill";
 import useMediaQuery from "@/shared/hooks/useMediaQuery";
 
@@ -39,7 +39,7 @@ const sections = [
 ];
 
 const Home = () => {
-    const isDesktop = useMediaQuery(window.innerWidth > 700);
+    const isDesktop = useMediaQuery();
 
     return (
         <div>
