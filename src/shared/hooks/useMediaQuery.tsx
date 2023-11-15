@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 
-const useMediaQuery = () => {
-    const [isDesktop, setDesktop] = useState(window.innerWidth > 700);
+type DesktopScreenSize = boolean;
+
+const useMediaQuery = (desktopScreenSize: DesktopScreenSize) => {
+    const [isDesktop, setDesktop] = useState(desktopScreenSize);
 
     const updateMedia = useCallback(() => {
-        setDesktop(window.innerWidth > 700);
-    }, []);
+        setDesktop(desktopScreenSize);
+    }, [desktopScreenSize]);
 
     useEffect(() => {
         window.addEventListener("resize", updateMedia);

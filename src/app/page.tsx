@@ -39,7 +39,7 @@ const sections = [
 ];
 
 const Home = () => {
-    const isDesktop = useMediaQuery();
+    const isDesktop = useMediaQuery(window.innerWidth > 700);
 
     return (
         <div>
