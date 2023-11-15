@@ -77,9 +77,9 @@ export const CardSubTitle = styled.h2`
 
 export const CardDescription = styled.p`
     font-weight: 400;
-    font-size: 1rem;
-    text-justify: inter-word;
+    font-size: 0.75rem;
+    text-align: justify;
     padding: 0 1rem;
-    line-height: 1.25;
+    line-height: 1.5;
 `;
 export default Card;

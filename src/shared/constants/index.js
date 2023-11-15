@@ -400,8 +400,8 @@ const projects = [
     {
         title: "GOMANK",
         description:
-            "GoMank is an app where customers can book a carwash, and call the car-washer to their house. GoMank is a microservice app, it have a mobile version using react native and website version using react.",
-        feat: "nearest mamang, filter order by date, chat, get location mamang, payment gateway, etc.",
+            "GOMANK is a microservice app that provides a convenient platform for customers to book car wash services and have the car washer come to their location. It’s designed with user convenience in mind, allowing users to easily schedule a car wash from the comfort of their own home or anywhere else.",
+        feat: "Booking system, Location services, Payment, filter order by date, chat, notification, admin page.",
         tech: [
             {
                 title: "Frontend Stack",
@@ -428,7 +428,8 @@ const projects = [
     {
         title: "WEB-SCRAPPER",
         description:
-            "It’s a full-stack web app using Cheerio js to scrap from another web novel site. It is only intended for me to learn about WebCrawler. this is a scrapper from boxnovel site.",
+            "The primary function of this application is to systematically navigate the BoxNovel site, access its pages, and extract the desired data. This process of web scraping allows the application to gather data that can be used for a variety of purposes, depending on the user’s needs.",
+        feat: "Web scraping, Full-stack development, Learning tool, Data extraction",
         tech: [
             {
                 title: "Frontend Stack",
@@ -461,8 +462,8 @@ const projects = [
     {
         title: "PRADA-CLONE",
         description:
-            "Prada-Clone is a Microservices website. Build for me to learn how to make a web and mobile apps with React. This is also the project where I first learn Microservices with Apollo server and GraphQL.",
-        feat: "Pagination, Filter by Genre, bookmark, login, NavGuard, User login, Admin Page (CRUD), scrapper from boxnovel.",
+            "Prada Clone is a microservices based web and mobile application, designed as a learning project to understand the development of web and mobile apps using React. It’s also a platform to explore microservices architecture with Apollo Server and GraphQL.",
+        feat: "Pagination, Filtering, bookmarking, login system, Admin Page (CRUD), Mobile version",
         tech: [
             {
                 title: "Frontend Stack",
@@ -495,7 +496,8 @@ const projects = [
     {
         title: "CHAT-SNAP",
         description:
-            "Chat-snap is a SSR web app where users can see their post and others ' posts. there are admins that could delete the post, user, and hashtag used if it’s inappropriate.",
+            "Chat-snap is a SSR web app where users can post, see their post and others posts. there are admins that could delete the post, user, and hashtag",
+        feat: "CRUD, SSR, Authentication, Authorization, Admin Page",
         tech: [
             {
                 title: "Frontend Stack",
@@ -520,7 +522,8 @@ const projects = [
     {
         title: "JOB-HUNT",
         description:
-            "Job-Hunt is a Monolith website. It’s a full-stack web app with an admin-page as CMS, and also a client-page.",
+            "Job-Hunt is a Monolith website. It’s a full-stack web app with an admin-page as CMS, and user can find a job from it.",
+        feat: "CRUD, Authentication, Authorization, Admin Page",
         tech: [
             {
                 title: "Frontend Stack",

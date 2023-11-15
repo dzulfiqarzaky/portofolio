@@ -1,4 +1,3 @@
-"use client";
 import React, { memo, useCallback, useState } from "react";
 import styled from "styled-components";
 import { motion, useAnimationControls } from "framer-motion";

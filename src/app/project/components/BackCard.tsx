@@ -2,12 +2,12 @@
 import React from "react";
 import styled from "styled-components";
 import { ProgressMotion } from "@/shared/components/motions/";
-import { Spacer, StyledDescription } from "@/shared/style";
+import { Spacer } from "@/shared/style";
 
 import { ProjectInterface } from "./CardList";
 import { CardContent } from "./FrontCard";
-import { CardDescription, CardTitle } from "./Card";
-import { HTML_TAG } from "@/shared/constants/common";
+import { CardDescription, CardSubTitle, CardTitle } from "./Card";
+import { CARD_FEATURE, HTML_TAG } from "@/shared/constants/common";
 
 type BackCardProps = { project: ProjectInterface };
 
@@ -17,6 +17,10 @@ const BackCard = ({ project }: BackCardProps) => {
             <CardTitle>{project.title}</CardTitle>
             <Spacer />
             <CardDescription>{project.description}</CardDescription>
+            <Spacer />
+            <CardSubTitle>{CARD_FEATURE}</CardSubTitle>
+            <Spacer />
+            <CardDescription>{project.feat}</CardDescription>
             <Spacer />
             <ButtonContainer>
                 {project.link.map((link, linkIndex) => (

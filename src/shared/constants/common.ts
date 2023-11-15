@@ -57,3 +57,5 @@ export const SCREEN_SIZE = {
     TABLET: 1024,
     DESKTOP: 1200,
 } as const;
+
+export const CARD_FEATURE = "Key Features";

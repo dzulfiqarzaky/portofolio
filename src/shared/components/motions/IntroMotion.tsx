@@ -1,4 +1,3 @@
-"use client";
 import React, { useRef, useEffect, useCallback, memo } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ANIMATION_DIRECTION } from "@/shared/constants/common";
@@ -11,25 +10,29 @@ interface IntroMotionProps {
     children: React.ReactNode;
 }
 
+const intersectionObserverOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.8,
+};
+
 const IntroMotion: React.FC<IntroMotionProps> = memo(
     ({ start = ANIMATION_DIRECTION.LEFT, end = ANIMATION_DIRECTION.RIGHT, children }) => {
         const controls = useAnimation();
         const ref = useRef<HTMLDivElement>(null);
 
-        const intersectionObserverOptions = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.8,
-        };
+        const animations = useCallback(() => {
+            const baseAnimations = {
+                left: { x: -20 },
+                right: { x: 20 },
+                top: { y: -20 },
+                bottom: { y: 20 },
+            };
 
-        const animations = {
-            left: { x: -20 },
-            right: { x: 20 },
-            top: { y: -20 },
-            bottom: { y: 20 },
-        };
+            baseAnimations[start] = { x: 0, y: 0 };
 
-        animations[start] = { x: 0, y: 0 };
+            return baseAnimations;
+        }, [start]);
 
         const handleIntersection = useCallback(
             (entries: IntersectionObserverEntry[]) => {
@@ -37,13 +40,13 @@ const IntroMotion: React.FC<IntroMotionProps> = memo(
                     if (entry.isIntersecting) {
                         controls.start({
                             opacity: 1,
-                            ...animations[start],
+                            ...animations()[start],
                             transition: { duration: 0.5, ease: "easeOut" },
                         });
                     } else {
                         controls.start({
                             opacity: 0,
-                            ...animations[end],
+                            ...animations()[end],
                             transition: { duration: 0.5, ease: "easeOut" },
                         });
                     }
@@ -69,9 +72,9 @@ const IntroMotion: React.FC<IntroMotionProps> = memo(
         return (
             <motion.div
                 ref={ref}
-                initial={{ opacity: 0, ...animations[start] }}
+                initial={{ opacity: 0, ...animations()[start] }}
                 animate={controls}
-                exit={{ opacity: 0, ...animations[end] }}
+                exit={{ opacity: 0, ...animations()[end] }}
             >
                             {children}       {" "}
             </motion.div>
