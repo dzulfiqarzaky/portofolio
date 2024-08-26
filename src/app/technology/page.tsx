@@ -38,16 +38,12 @@ const Technology = memo(() => {
     if (!descriptions) return <div></div>;
 
     return (
-        <TechnologyWrapper>
+        <>
             <Title title={title} />
             <Spacer />
             <Description technologies={descriptions} svgAttributeStyle={svgAttributeStyle} />
-        </TechnologyWrapper>
+        </>
     );
 });
-
-const TechnologyWrapper = styled.div`
-    // text-align: center;
-`;
 
 export default Technology;
